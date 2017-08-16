@@ -70,25 +70,4 @@ control "﻿V-26681" do
 	the official documentation for the complete  guide on establishing SSL
 	configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html
 	"
-
-  describe yaml_parser(ELASTICSEARCH_CONF_FILE).params['xpack.ssl.key'] do
-    it { should_not be_nil}
-  end
-
-  describe yaml_parser(ELASTICSEARCH_CONF_FILE).params['xpack.ssl.certificate'] do
-    it { should_not be_nil}
-  end
-
-  describe yaml_parser(ELASTICSEARCH_CONF_FILE).params['xpack.ssl.certificate_authorities'] do
-    it { should_not be_nil}
-  end
-
-  describe yaml_parser(ELASTICSEARCH_CONF_FILE).params['xpack.security.http.ssl.enabled'] do
-    it { should cmp true}
-  end
-
-  describe JSON.parse(command("curl http://#{ELASTIC_IP}:#{ELASTIC_PORT}/").stdout)['status'] do
-    it { should_not cmp 200}
-  end
-
 end
