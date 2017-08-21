@@ -13,6 +13,13 @@ ELASTICSEARCH_CONF= attribute(
   description: 'Path to elasticsearch.yaml',
   default: '/etc/elasticsearch/elasticsearch.yml'
 )
+
+MANAGED_ACCESS_POINTS= attribute(
+  'managed_access_points',
+  description: 'List of managed access points',
+  default: ['10.0.2.15']
+)
+
 ES_ADMIN = attribute(
   'es_admin',
   description: 'Elasticsearch admin',

@@ -18,7 +18,6 @@ only_if do
   service('elasticsearch').installed?
 end
 
-
 control "V-26682" do
   title "Encrypt information in transit both at the Elasticsearch perimeter and
 within the Elasticsearch cluster"
@@ -68,25 +67,19 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
     its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
     its(['xpack.security.http.ssl.enabled']) { should eq true }
     its(['xpack.security.transport.ssl.enabled']) { should eq true }
-
   end
-
   describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']) do
     it { should be_file }
   end
-
   describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
     it { should be_file }
   end
-
   yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
     describe file(cert) do
       it { should be_file }
     end
   end
-
   describe command("curl http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
-    its('exit_status') { should cmp 52 }
+    its('exit_status') { should_not cmp 0 }
   end
-
 end
