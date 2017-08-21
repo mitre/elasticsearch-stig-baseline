@@ -37,6 +37,7 @@ Security IP Filtering. Change the elasticsearch cluster name to an instance
 unique value for all elasticsearch nodes and all applications should use HTTP/S
  rather than Elasticsearch transport protocol."
   impact 0.5
+  tag "nist": ["AC-17 (3)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33908r1_rule"
   tag "stig_id": "SRG-APP-000017"

@@ -27,6 +27,7 @@ within the Elasticsearch cluster"
 and connected components such as Kibana and Logstash.  X-Pack Security should
 be configured with organization approved cryptography."
   impact 0.5
+  tag "nist": ["IA-3 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34190r1_rule"
   tag "stig_id": "SRG-APP-000159"

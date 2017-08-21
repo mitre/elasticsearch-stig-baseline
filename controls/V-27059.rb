@@ -24,6 +24,7 @@ control "V-27059" do
 within the Elasticsearch cluster"
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch"
   impact 0.5
+  tag "nist": ["SC-8 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34354r1_rule"
   tag "stig_id": "SRG-APP-NA"

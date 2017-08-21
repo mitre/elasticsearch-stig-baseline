@@ -7,6 +7,7 @@ sufficient context.  X-Pack Security audit controls should be enabled to audit
 the defaults of all HTTP/S based access to Elasticsearch.  All applications
 should use HTTP/S  rather than Elasticsearch transport protocol."
   impact 0.5
+  tag "nist": ["AU-12 b", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34182r1_rule"
   tag "stig_id": "SRG-APP-000090"
