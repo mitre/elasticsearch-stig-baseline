@@ -19,17 +19,17 @@ only_if do
 end
 
 
-control "V-26681" do
-  title "Encrypt information in transit both at the application and
-Elasticsearch perimeter and within the Elasticsearch cluster"
+control "V-26682" do
+  title "Encrypt information in transit both at the Elasticsearch perimeter and
+within the Elasticsearch cluster"
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
 be configured with organization approved cryptography."
   impact 0.5
   tag "severity": "medium"
-  tag "rid": "SV-33881r1_rule"
-  tag "stig_id": "SRG-APP-000014"
-  tag "cci": "CCI-000068"
+  tag "rid": "SV-33882r1_rule"
+  tag "stig_id": "SRG-APP-000015"
+  tag "cci": "CCI-001453"
   tag "check": "Application must utilize approved cryptography to protect
 remote access sessions.
 
@@ -87,4 +87,5 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
   describe command("curl http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
     its('exit_status') { should cmp 52 }
   end
+
 end
