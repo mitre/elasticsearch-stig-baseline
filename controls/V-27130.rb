@@ -52,7 +52,8 @@ If this setting is not present or set to true, this is a finding.
 As a elasticsearch user, check that non-secure http traffic does not response
 with 200 status:
 
-$curl http://<elasticsearchIP:9200>/
+$curl -H 'Content-Type: application/json' -u <TEST_USER> -p <TEST_CREDENTIALS>
+http://<elasticsearchIP:9200>/
 
 If a 200 response comes back, this is a finding."
   tag "fix": "Implement protective measures when establishing a trusted
@@ -74,9 +75,11 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
   describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
     it { should be_file }
   end
-  yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
-    describe file(cert) do
-      it { should be_file }
+  if yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].respond_to?('each')
+    yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
+      describe file(cert) do
+        it { should be_file }
+      end
     end
   end
   describe command("curl http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do

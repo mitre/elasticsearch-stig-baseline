@@ -60,10 +60,17 @@ information to establish where an event occured.
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"
 
-  describe yaml(ELASTICSEARCH_CONF) do
-    its(['xpack.security.audit.enabled']) { should eq true }
-    its(['xpack.security.audit.outputs']) { should include "logfile" }
-    its(['xpack.security.audit.logfile.events.include']) { should match_array ES_INCLUDED_LOGEVENTS }
-    its(['xpack.security.audit.logfile.events.exclude']) { should match_array ES_EXCLUDED_LOGEVENTS }
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack.security.audit.enabled']) { should eq true }
+      its(['xpack.security.audit.outputs']) { should include 'logfile' }
+      its(['xpack.security.audit.logfile.events.include']) { should match_array ES_INCLUDED_LOGEVENTS }
+      its(['xpack.security.audit.logfile.events.exclude']) { should match_array ES_EXCLUDED_LOGEVENTS }
+    end
+
+  rescue Exception => msg
+    describe do
+      skip "Exception: #{msg}"
+    end
   end
 end

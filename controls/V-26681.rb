@@ -18,7 +18,6 @@ only_if do
   service('elasticsearch').installed?
 end
 
-
 control "V-26681" do
   title "Encrypt information in transit both at the application and
 Elasticsearch perimeter and within the Elasticsearch cluster"
@@ -53,7 +52,8 @@ If this setting is not present or set to true, this is a finding.
 As a elasticsearch user, check that non-secure http traffic does not response
 with 200 status:
 
-$curl http://<elasticsearchIP:9200>/
+$curl -H 'Content-Type: application/json' -u <TEST_USER> -p <TEST_CREDENTIALS>
+http://<elasticsearchIP:9200>/
 
 If a 200 response comes back, this is a finding."
   tag "fix": "Implement protective measures when providing remote access.
@@ -62,26 +62,43 @@ If a 200 response comes back, this is a finding."
 See the official documentation for the complete  guide on establishing SSL
 configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
 
-  describe yaml(ELASTICSEARCH_CONF) do
-    its(['xpack.ssl.key']) { should_not be_nil }
-    its(['xpack.ssl.certificate']) { should_not be_nil }
-    its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
-    its(['xpack.security.http.ssl.enabled']) { should eq true }
-    its(['xpack.security.transport.ssl.enabled']) { should eq true }
-  end
-  describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']) do
-    it { should be_file }
-  end
-  describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
-    it { should be_file }
-  end
-  yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
-    describe file(cert) do
+
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack.ssl.key']) { should_not be_nil }
+      its(['xpack.ssl.certificate']) { should_not be_nil }
+      its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
+      its(['xpack.security.http.ssl.enabled']) { should eq true }
+      its(['xpack.security.transport.ssl.enabled']) { should eq true }
+    end
+
+    describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']) do
       it { should be_file }
     end
-  end
-  describe command("curl http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
-    its('exit_status') { should_not cmp 0 }
-  end
 
+    describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
+      it { should be_file }
+    end
+
+    if yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].is_a?(Array)
+      yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
+        describe file(cert) do
+          it { should be_file }
+        end
+      end
+    else
+      describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities']) do
+        it { should be_file }
+      end
+    end
+
+    describe command("curl -H 'Content-Type: application/json' http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
+      its('exit_status') { should_not cmp 0 }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

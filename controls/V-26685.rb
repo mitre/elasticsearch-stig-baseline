@@ -1,3 +1,4 @@
+
 ELASTIC_IP= attribute(
   'elastic_ip',
   description: 'IP address of the elasticsearch instance',
@@ -67,8 +68,8 @@ _culster settings are set to \"{}\" OR Verify all three settings are
 xpack.security.http.filter.enabled: true; xpack.security.http.filter.allow:
 \"Managed access control points\"; xpack.security.http.filter.deny: _all
 
-$ curl -h content_type:application-json    -XGET
-\"https://<elasticsearch>:9200/_cluster/settings\"
+$curl -H 'Content-Type: application/json' -u <TEST_USER> -p <TEST_CREDENTIALS>
+-XGET \"http://<elasticsearch>:9200/_cluster/settings\"
 
 If these configuration setting are disabled, or not pointing to the \"Managed
 access control points\", this is a finding. "
@@ -95,15 +96,22 @@ $ sudo su - elasticsearch
 # SYSTEMD SERVER ONLY
 $ systemctl restart elasticsearch"
 
-  describe yaml(ELASTICSEARCH_CONF) do
-    its(['xpack.security.http.filter.enabled']) { should eq true }
-    its(['xpack.security.http.filter.allow']) { should be_in MANAGED_ACCESS_POINTS }
-    its(['xpack.security.http.filter.deny']) { should eq '_all' }
-  end
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack.security.http.filter.enabled']) { should eq true }
+      its(['xpack.security.http.filter.allow']) { should be_in MANAGED_ACCESS_POINTS }
+      its(['xpack.security.http.filter.deny']) { should eq '_all' }
+    end
 
-  cmd = "curl https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_cluster/settings -k -u #{ES_ADMIN}:#{ES_PASS}"
-  describe json(command:cmd) do
-    its('persistent') { should be_empty }
-    its('transient') { should be_empty }
+    cmd = "curl -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_cluster/settings -k -u #{ES_ADMIN}:#{ES_PASS}"
+    describe json(command:cmd) do
+      its('persistent') { should be_empty }
+      its('transient') { should be_empty }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
   end
 end
