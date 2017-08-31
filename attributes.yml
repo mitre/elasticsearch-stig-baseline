@@ -8,164 +8,39 @@
 
 # === PROFILE USER EDIT ===
 
-#description: Path for the nginx configuration file
-nginx_conf_file: '/etc/nginx/nginx.conf'
+  # description: 'IP address of the elasticsearch instance',
+  elastic_ip: '0.0.0.0'
 
-#description: Path to nginx backup repository
-nginx_backup_repository: '/usr/share/nginx/html'
+  # description: 'Port address of the elasticsearch instance',
+  elastic_port: '9200'
 
-#description: Subnet of the DMZ
-dmz_subnet: '62.0.0.0/24'
+  # description: 'Path to elasticsearch.yaml',
+  elasticsearch_conf: '/etc/elasticsearch/elasticsearch.yml'
 
-#description: Minimum Web vendor-supported version.
-nginx_min_ver: '1.12.0'
+  # description: 'List of managed access points',
+  managed_access_points: ['10.0.2.15']
 
-#description: List of authorized running processes,
-authorized_process_list:
-    ['nginx',
-     'systemd',
-     'systemd-journal',
-     'systemd-udevd',
-     'systemd-logind',
-     'dbus-daemon',
-     'agetty',
-     'bash',
-     'ps',
-     'openssl'
-    ]
+  # description: 'Elasticsearch admin',
+  es_admin: 'elastic'
 
-#description: Nginx owner
-nginx_owner: 'nginx'
+  # description: 'Elasticsearch admin password',
+  es_pass: 'changeme'
 
-#description: The Nginx group,
-nginx_group: 'nginx'
+  # description: 'List of events to be logged',
+  es_included_logevents: ['access_denied', 'anonymous_access_denied', 'authentication_failed',
+     'connection_denied', 'tampered_request', 'run_as_denied', 'run_as_granted']
 
-#description: The system adminstrator,
-sys_admin: 'root'
+  # description: 'List of events to be logged',
+  es_included_logevents: ['access_granted']
 
-#description: The system adminstrator group,
-sys_admin_group: 'root'
+  # description: 'List of superusers',
+  es_superusers: ['elastic']
 
-#description: List of non admin user accounts
-authorized_user_list:
-    ['user'
-    ]
+  # description: 'Elasticsearch owner',
+  es_owner: 'elasticsearch'
 
-#description: Monitoring software for CGI or equivalent programs,
-monitoring_software: 'auditd'
+  # description: 'Elasticsearch group',
+  es_group: 'elasticsearch'
 
-#description: List of allowed services
-allowed_services_list:
-    ['brandbot',
-    'dbus',
-    'dracut-shutdown',
-    'emergency',
-    'getty@tty1',
-    'kmod-static-nodes',
-    'network',
-    'nginx',
-    'rc-local',
-    'rescue',
-    'rhel-autorelabel-mark',
-    'rhel-autorelabel',
-    'rhel-configure',
-    'rhel-dmesg',
-    'rhel-import-state',
-    'rhel-loadmodules',
-    'rhel-readonly',
-    'serial-getty@ttyS0',
-    'systemd-ask-password-console',
-    'systemd-ask-password-wall',
-    'systemd-binfmt',
-    'systemd-firstboot',
-    'systemd-fsck-root',
-    'systemd-hwdb-update',
-    'systemd-initctl',
-    'systemd-journal-catalog-update',
-    'systemd-journal-flush',
-    'systemd-journald',
-    'systemd-logind',
-    'systemd-modules-load',
-    'systemd-random-seed',
-    'systemd-readahead-collect',
-    'systemd-readahead-done',
-    'systemd-readahead-replay',
-    'systemd-reboot',
-    'systemd-shutdownd',
-    'systemd-sysctl',
-    'systemd-tmpfiles-clean',
-    'systemd-tmpfiles-setup-dev',
-    'systemd-tmpfiles-setup',
-    'systemd-udev-trigger',
-    'systemd-udevd',
-    'systemd-update-done',
-    'systemd-update-utmp-runlevel',
-    'systemd-update-utmp',
-    'systemd-user-sessions',
-    'systemd-vconsole-setup'
-    ]
-
-#description: List of disallowed services
-disallowed_services_list:
-    ['mysql',
-     'postgres',
-     'named'
-    ]
-
-# description: List of disallowed compilers
-disallowed_compiler_list:
-    ['gcc'
-    ]
-
-#description: DoD-approved PKIs (e.g., DoD PKI, DoD ECA, and DoD-approved external partners.
-dod_approved_pkis:
-    ['DoD',
-     'ECA'
-    ]
-
-#description: File list of  documentation, sample code, example applications, and tutorials.
-nginx_disallowed_file_list:
-    [ '/usr/share/man/man8/nginx.8.gz'
-    ]
-
-#description: File list of allowed documentation, sample code, example applications, and tutorials.
-nginx_allowed_file_list:
-    [
-    ]
-
-#description: List of  authorized nginx modules.
-nginx_authorized_modules:
-    ['http_addition',
-     'http_auth_request',
-     'http_dav',
-     'http_flv',
-     'http_gunzip',
-     'http_gzip_static',
-     'http_mp4',
-     'http_random_index',
-     'http_realip',
-     'http_secure_link',
-     'http_slice',
-     'http_ssl',
-     'http_stub_status',
-     'http_sub',
-     'http_v2',
-     'mail_ssl',
-     'stream_realip',
-     'stream_ssl',
-     'stream_ssl_preread'
-     ]
-
-#description: List of  unauthorized nginx modules.
-nginx_unauthorized_modules:
-    [
-    ]
-
-#description: Path for the nginx binary
-nginx_path: '/usr/sbin/nginx'
-
-#description: domain and port to the OCSP Server
-ocsp_server: 'login.live.com:443'
-
-#description: Frequency at which CRL is updated in days
-crl_udpate_frequency: 7
+  # description: 'Path to elasticsearch.yaml',
+  elasticsearch_conf: '/etc/elasticsearch'
