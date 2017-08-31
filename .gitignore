@@ -8,3 +8,4 @@ nbproject
 .gitter
 **/.kitchen/
 .DS_Store
+inspec.lock

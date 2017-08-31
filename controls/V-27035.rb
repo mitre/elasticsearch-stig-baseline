@@ -1,3 +1,42 @@
+
+ELASTIC_IP= attribute(
+  'elastic_ip',
+  description: 'IP address of the elasticsearch instance',
+  default: '0.0.0.0'
+)
+ELASTIC_PORT= attribute(
+  'elastic_port',
+  description: 'Port address of the elasticsearch instance',
+  default: '9200'
+)
+ELASTICSEARCH_CONF= attribute(
+  'elasticsearch_conf',
+  description: 'Path to elasticsearch.yaml',
+  default: '/etc/elasticsearch/elasticsearch.yml'
+)
+
+MANAGED_ACCESS_POINTS= attribute(
+  'managed_access_points',
+  description: 'List of managed access points',
+  default: ['10.0.2.15']
+)
+
+ES_ADMIN = attribute(
+  'es_admin',
+  description: 'Elasticsearch admin',
+  default: 'elastic'
+)
+ES_PASS = attribute(
+  'es_pass',
+  description: 'Elasticsearch admin password',
+  default: 'changeme'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
+
 control "V-27035" do
   title "Control network access to Elasticsearch"
   desc  "Limit network access to Elasticsearch software from known points of
@@ -56,4 +95,23 @@ $ sudo su - elasticsearch
 
 # SYSTEMD SERVER ONLY
 $ systemctl restart elasticsearch"
+
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack.security.http.filter.enabled']) { should eq true }
+      its(['xpack.security.http.filter.allow']) { should be_in MANAGED_ACCESS_POINTS }
+      its(['xpack.security.http.filter.deny']) { should eq '_all' }
+    end
+
+    cmd = "curl -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_cluster/settings -k -u #{ES_ADMIN}:#{ES_PASS}"
+    describe json(command:cmd) do
+      its('persistent') { should be_empty }
+      its('transient') { should be_empty }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

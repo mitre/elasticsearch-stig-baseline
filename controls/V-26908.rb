@@ -74,23 +74,26 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
       its(['xpack.security.transport.ssl.enabled']) { should eq true }
     end
 
-    describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']) do
-      it { should be_file }
+    describe command("openssl rsa -in #{yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']} -check -noout") do
+      its('stdout'){ should match /RSA key ok/ }
     end
 
-    describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
-      it { should be_file }
+    describe x509_certificate(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
+      it { should be_certificate }
+      it { should be_valid }
     end
 
     if yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].is_a?(Array)
       yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
-        describe file(cert) do
-          it { should be_file }
+        describe x509_certificate(cert) do
+          it { should be_certificate }
+          it { should be_valid }
         end
       end
     else
-      describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities']) do
-        it { should be_file }
+      describe x509_certificate(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities']) do
+        it { should be_certificate }
+        it { should be_valid }
       end
     end
 

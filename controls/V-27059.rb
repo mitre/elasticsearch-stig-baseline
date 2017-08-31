@@ -64,27 +64,45 @@ transmission.
  See the official documentation for the complete  guide on establishing SSL
 configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
 
-  describe yaml(ELASTICSEARCH_CONF) do
-    its(['xpack.ssl.key']) { should_not be_nil }
-    its(['xpack.ssl.certificate']) { should_not be_nil }
-    its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
-    its(['xpack.security.http.ssl.enabled']) { should eq true }
-    its(['xpack.security.transport.ssl.enabled']) { should eq true }
-  end
-  describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']) do
-    it { should be_file }
-  end
-  describe file(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
-    it { should be_file }
-  end
-  if yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].respond_to?('each')
-    yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
-      describe file(cert) do
-        it { should be_file }
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack.ssl.key']) { should_not be_nil }
+      its(['xpack.ssl.certificate']) { should_not be_nil }
+      its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
+      its(['xpack.security.http.ssl.enabled']) { should eq true }
+      its(['xpack.security.transport.ssl.enabled']) { should eq true }
+    end
+
+    describe command("openssl rsa -in #{yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']} -check -noout") do
+      its('stdout'){ should match /RSA key ok/ }
+    end
+
+    describe x509_certificate(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
+      it { should be_certificate }
+      it { should be_valid }
+    end
+
+    if yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].is_a?(Array)
+      yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
+        describe x509_certificate(cert) do
+          it { should be_certificate }
+          it { should be_valid }
+        end
+      end
+    else
+      describe x509_certificate(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities']) do
+        it { should be_certificate }
+        it { should be_valid }
       end
     end
-  end
-  describe command("curl http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
-    its('exit_status') { should_not cmp 0 }
+
+    describe command("curl -H 'Content-Type: application/json' http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
+      its('exit_status') { should_not cmp 0 }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
   end
 end
