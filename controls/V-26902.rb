@@ -110,6 +110,10 @@ $ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
 
 Review the role permissions, if any role is listed as superuser but should not
 have that access, this is a finding."
+  tag "fix": "Configure elasticsearch audit settings to contain sufficient
+information to establish where an event occured.
+See the official documentation for the instructions on audit configuration:
+https://www.elastic.co/guide/en/x-pack/current/auditing.html"
 
   begin
     describe yaml(ELASTICSEARCH_CONF) do

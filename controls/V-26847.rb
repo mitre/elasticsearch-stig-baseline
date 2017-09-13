@@ -54,7 +54,7 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html
 
  If the current settings do not provide enough information regarding the
 content of the event, this is a finding."
-  tag "fix": "Configure elasticsearch audit settings to contain sifficient
+  tag "fix": "Configure elasticsearch audit settings to contain sufficient
 information to establish where an event occured.
 
 See the official documentation for the instructions on audit configuration:

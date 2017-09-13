@@ -1,7 +1,3 @@
-only_if do
-  service('elasticsearch').installed?
-end
-
 control "V-26680" do
   title "Use human readable security markings"
   desc  "The application controlled data model for security labels and markings
@@ -19,8 +15,4 @@ Elasticsearch supports this requirement and cannot be configured to be out of
 compliance. This is a permanent not a finding. "
   tag "fix": "This requirement is a permanent not a finding. No fix is
 required."
-
-  only_if do
-    false
-  end
 end
