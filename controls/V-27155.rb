@@ -23,7 +23,7 @@ control "V-27155" do
   desc  "Configure X-Pack Security to use an organization approved FIPS 140-2
 java cryptography provider."
   impact 0.5
-  tag "nist": ["", "Rev_"]
+  tag "nist": ["SC-13 (4)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34454r1_rule"
   tag "stig_id": "SRG-APP-NA"
