@@ -22,8 +22,7 @@ only_if do
 end
 
 control "V-26904" do
-  title "Generate Audits to assist monitoring and alerting of activities on the
-system"
+  title "The application must initiate session auditing upon start up."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
 sufficient context.  X-Pack Security audit controls should be enabled to audit

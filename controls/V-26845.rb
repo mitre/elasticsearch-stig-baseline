@@ -22,8 +22,8 @@ only_if do
 end
 
 control "V-26845" do
-  title "Generate Audits to assist monitoring and alerting of activities on the
-system"
+  title "The application must produce audit records containing sufficient
+information to establish what type of events occurred."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
 sufficient context.  X-Pack Security audit controls should be enabled to audit
@@ -41,9 +41,6 @@ captured and stored with audit records.
 
 As the application administrator (usually elasticsearch, check the
 xpack.security.audit.outputs setting contains logfile by running the following:
-
-$ cat config/elasticsearch.yml | grep xpack.security.audit.enabled
-it is not set to true it is a finding
 
 
 $ cat config/elasticsearch.yml | grep xpack.security.audit.outputs

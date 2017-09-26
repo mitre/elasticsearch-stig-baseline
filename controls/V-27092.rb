@@ -19,8 +19,10 @@ only_if do
 end
 
 control "V-27092" do
-  title "Information in transit is protected by standard TLS communication, and
-can be visible to specific system monitoring tools"
+  title "For those instances where the organization requires encrypted traffic
+to be visible to information system monitoring tools, the application
+transmitting the encrypted traffic must make provisions to allow that traffic
+to be visible to specific system monitoring tools."
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
 be configured with organization approved cryptography."
@@ -39,7 +41,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

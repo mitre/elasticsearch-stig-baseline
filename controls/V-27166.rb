@@ -3,6 +3,8 @@ only_if do
 end
 
 control "V-27166" do
+  title "The application must have the capability to produce audit records on
+hardware-enforced, write-once media."
   impact 0.5
   tag "nist": ["AU-9 (1)", "Rev_4"]
   tag "severity": "medium"

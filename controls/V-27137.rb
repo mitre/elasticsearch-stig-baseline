@@ -3,7 +3,8 @@ only_if do
 end
 
 control "V-27137" do
-  title "Utilize tools that perform commercial off-the-shelf integrity checks"
+  title "Applications utilized for integrity verification must detect
+unauthorized changes to software and information."
   impact 0.5
   tag "nist": ["SI-7", "Rev_3"]
   tag "severity": "medium"

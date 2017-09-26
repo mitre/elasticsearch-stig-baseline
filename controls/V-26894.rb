@@ -19,6 +19,9 @@ only_if do
 end
 
 control "V-26894" do
+  title "The application must validate the binding of the reviewer identity to
+the information at the transfer/release point prior to release/transfer from
+one security domain to another security domain."
   impact 0.5
   tag "nist": ["AU-10 (4) (a)", "Rev_4"]
   tag "severity": "medium"
@@ -35,7 +38,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

@@ -37,7 +37,8 @@ only_if do
 end
 
 control "V-26907" do
-  title "Enable secured communication to and within the Elasticsearch cluster"
+  title "The application must use organization-defined replay-resistant
+authentication mechanisms for network access to privileged accounts."
   desc  "Configure PKI authentication, TLS/SSL, and cluster key features of
 X-pack Security so that authentication and communication within Elasticsearch
 is replay resistant."
@@ -47,31 +48,35 @@ is replay resistant."
   tag "rid": "SV-34187r1_rule"
   tag "stig_id": "SRG-APP-000156"
   tag "cci": "CCI-000774"
-  tag "check": "Check Elasticsearch.yml settings and existing IP filtering
-rules to verify that only sepecific IP behind hardware/software \"Managed
-access control points\" are listed.
+  tag "check": "Application must utilize approved cryptography to authenticate
+non-local maintenance sessions.
 
-As the application administrator (usually elasticsearch, check the
-xpack.security.http.filter setting contains IP address(es) of the  \"Managed
-access control points\":
+$cat elasticsearch.yml | grep xpack.ssl
 
-$cat elasticsearch.yml | grep \"xpack.security.http.filter\", Verify all three
-settings; xpack.security.http.filter.enabled: true;
-xpack.security.http.filter.allow: \"Managed access control points\";
-xpack.security.http.filter.deny: _all
+xpack.ssl.key:                     <server_key>.key
+xpack.ssl.certificate:             <server_certificate>.crt
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-As an elasticsearch administrator test; verify runtime environment within
-_culster settings are set to \"{}\" OR Verify all three settings are
-xpack.security.http.filter.enabled: true; xpack.security.http.filter.allow:
-\"Managed access control points\"; xpack.security.http.filter.deny: _all
+If these setting are not set or the underlining certificate and keys are not
+correct, this is a finding.
+
+$cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:
+
+If this setting is set to false, this is a finding.
+
+$cat elasticsearch.yml | grep xpack.security.transport.ssl.enabled:
+
+If this setting is set to false, this is a finding.
+
+As a elasticsearch user, check that non-secure http traffic does not response
+with 200 status:
 
 $curl -H 'Content-Type: application/json' -u <TEST_USER> -p <TEST_CREDENTIALS>
--XGET \"http://<elasticsearch>:9200/_cluster/settings\"
+http://<elasticsearchIP:9200>/
 
-If these configuration setting are disabled, or not pointing to the \"Managed
-access control points\", this is a finding. "
-  tag "fix": "Implement protective measures when enforcing password encryption
-for transmission.
+If a 200 response comes back, this is a finding."
+  tag "fix": "Implement approved cryptography to authenticate non-local
+maintenance sessions.
 
  See the official documentation for the complete  guide on establishing SSL
 configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"

@@ -19,7 +19,10 @@ only_if do
 end
 
 control "V-27154" do
-  title "Configure organization approved encryption"
+  title "Applications must employ FIPS-validated cryptography to protect
+unclassified information when such information must be separated from
+individuals who have the necessary clearances yet lack the necessary access
+approvals."
   desc  "Configure X-Pack Security to use an organization approved FIPS 140-2
 java cryptography provider."
   impact 0.5
@@ -38,7 +41,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

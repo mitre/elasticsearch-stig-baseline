@@ -22,8 +22,9 @@ only_if do
 end
 
 control "V-26864" do
-  title "Generate Audits to assist monitoring and alerting of activities on the
-system"
+  title "The application must produce audit records containing sufficient
+information to establish the identity of any user/subject or process associated
+with the event."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
 sufficient context.  X-Pack Security audit controls should be enabled to audit

@@ -9,7 +9,9 @@ only_if do
 end
 
 control "V-26927" do
-  title "Ensure Elasticsearch PKI validation meets organizational requirements."
+  title "The application, when utilizing PKI-based authentication, must
+validate certificates by constructing a certification path with status
+information to an accepted trust anchor."
   desc  "Configure the centralized authentication service to enforce
 organization policies such as valid certification path, trusted anchor,
 certificate revocation lists."
@@ -19,21 +21,27 @@ certificate revocation lists."
   tag "rid": "SV-34207r1_rule"
   tag "stig_id": "SRG-APP-000175"
   tag "cci": "CCI-000185"
-  tag "check": "Must perform manual verification of certificates paths using
-3rd party tools, like OpenSSl verify function, described:
-https://wiki.openssl.org/index.php/Manual:Verify(1)
+  tag "check": "When using PKI-basd authentication; the certificate path must
+be validated.
 
-If the certificate is not valid, this is a finding."
-  tag "fix": "Obtain a new certificate from approved service provider. Perform
-validation of the certifcate until the path is valid.
+$ cat config/elasticsearch.yml | grep -A 10 -B 6 'type: \\?pki'
 
-Update the certificates in elasticsearch.yml to the valid certificate
+ xpack:
+  security:
+    authc:
+      realms:
+        pki1:
+          type: pki
+          username_pattern: 'EMAILADDRESS=(.*?)(?:,|$)'
+          certificate_authorities: <CA_PATH>
+          truststore.path: <TS_PATH>
 
-$vi elasticsearch.yml
+If these settings are not correct or missing, this is a finding.  "
+  tag "fix": "Configure elasticsearch realms settings to point to organization
+supported authentication mechanism
 
-xpack.ssl.key:                     <server_key>.key
-xpack.ssl.certificate:             <server_certificate>.crt "
-
+See the official documentation for the instructions on realm configuration:
+https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"
   begin
     describe yaml(ELASTICSEARCH_CONF) do
       its(['xpack.ssl.key']) { should_not be_nil }
@@ -54,5 +62,4 @@ xpack.ssl.certificate:             <server_certificate>.crt "
       it { should be_nil}
     end
   end
-
 end

@@ -1,5 +1,8 @@
 control "V-29188" do
-  title "Encrypt data at rest"
+  title "Applications handling data requiring 'data at rest' protections must
+employ cryptographic mechanisms to prevent unauthorized disclosure and
+modification of the information that is at rest unless otherwise protected by
+alternative physical measures."
   desc  "If necessary, encrypt data stored by Elasticsearch at rest through the
 use of operating system controlled, and hardware accelerating file system
 encryption utilizing key management not governed by the data repository."

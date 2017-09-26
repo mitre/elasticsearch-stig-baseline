@@ -19,8 +19,8 @@ only_if do
 end
 
 control "V-26924" do
-  title "Encrypt information in transit both at the Elasticsearch perimeter and
-within the Elasticsearch cluster"
+  title "The application must support organizational requirements to enforce
+password encryption for transmission."
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
 be configured with organization approved cryptography."
@@ -32,6 +32,7 @@ be configured with organization approved cryptography."
   tag "cci": "CCI-000197"
   tag "check": "Application must utilize approved cryptography to protect
 remote access sessions.
+
 As the application administrator (usually elasticsearch), check the xpack.ssl
 settings are set to the correct values.
 
@@ -39,16 +40,12 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled: true
-
-If this setting is not present or set to true, this is a finding.
-
-$cat elasticsearch.yml | grep xpack.security.transport.ssl.enabled: true
 
 If this setting is not present or set to true, this is a finding.
 

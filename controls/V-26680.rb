@@ -1,5 +1,9 @@
 control "V-26680" do
-  title "Use human readable security markings"
+  title "The application must display security attributes in human-readable
+form on each object output from the system to system output devices to identify
+an organization-identified set of special dissemination, handling, or
+distribution instructions using organization-identified human readable,
+standard naming conventions."
   desc  "The application controlled data model for security labels and markings
 should be human readable and present in all stored and transferred data models."
   impact 0.5

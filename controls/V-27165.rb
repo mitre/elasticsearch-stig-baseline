@@ -22,10 +22,7 @@ only_if do
 end
 
 control "V-27165" do
-  title "Utilize cluster keys as well as supported clients to prevent hijacking
-of connections or unexpected contention of updates. Elasticsearch does not have
-a concept of sessions; but with X-pack Security, communication ids are unique,
-random, and signed to prevent tampering."
+  title "The application must protect audit tools from unauthorized deletion."
   desc  "Configure operating system protections for audit records such that the
 records are not editable or deletable by Elasticsearch administrators and not
 accessible by unauthorized users. Move audit logs off of local machines and

@@ -19,7 +19,10 @@ only_if do
 end
 
 control "V-26935" do
-  title "Configure organization approved encryption"
+  title "The application must use mechanisms for authentication to a
+cryptographic module that meet the requirements of applicable federal laws,
+Executive Orders, directives, policies, regulations, standards, and guidance
+for such authentication."
   desc  "Configure X-Pack to use an organization approved FIPS 140-2 java
 cryptography provider."
   impact 0.5
@@ -39,7 +42,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

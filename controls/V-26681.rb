@@ -19,8 +19,8 @@ only_if do
 end
 
 control "V-26681" do
-  title "Encrypt information in transit both at the application and
-Elasticsearch perimeter and within the Elasticsearch cluster"
+  title "Applications providing remote access capabilities must utilize
+approved cryptography to protect the confidentiality of remote access sessions."
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
 be configured with organization approved cryptography."
@@ -40,7 +40,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

@@ -22,8 +22,8 @@ only_if do
 end
 
 control "V-27064" do
-  title "Generate Audits to assist monitoring and alerting of activities on the
-system"
+  title "The application must identify potentially security-relevant error
+conditions."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
 sufficient context.  X-Pack Security audit controls should be enabled to audit

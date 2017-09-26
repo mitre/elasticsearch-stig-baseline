@@ -1,6 +1,8 @@
 control "V-27172" do
-  title "Setup security settings to utilize organizational attained
-certificates within the Elasticsearch cluster"
+  title "Applications must support organizational requirements to issue public
+key certificates under an appropriate certificate policy or obtain public key
+certificates under an appropriate certificate policy from an approved service
+provider."
   desc  "Configure PKI authentication, TLS/SSL, IP filtering; which are key
 features of X-Pack Security. This should ensure that authentication and
 communication within Elasticsearch utilizes organizational attained
@@ -21,13 +23,13 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these certificates are not approved certificates, this is a finding.  "
   tag "fix": "Revoke trust in any certificates not issued by a DoD-approved
 certificate authority.
 
-Configure PostgreSQL to accept only DoD and DoD-approved PKI end-entity
+Configure Elasticsearch to accept only DoD and DoD-approved PKI end-entity
 certificates. Verify that xpack.ssl.certificate_authorities is pointing to the
 trusted certificate authority from an approved service providoer.
 

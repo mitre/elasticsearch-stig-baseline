@@ -1,5 +1,6 @@
 control "V-27024" do
-  title "Encrypt data at rest"
+  title "Applications must take needed steps to protect data at rest and ensure
+confidentiality and integrity of application data."
   desc  "If necessary, encrypt data stored by Elasticsearch at rest through the
 use of operating system controlled, and hardware accelerating file system
 encryption utilizing key management not governed by the data repository."

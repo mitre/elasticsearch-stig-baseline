@@ -1,6 +1,6 @@
 control "V-26892" do
-  title "Move Audit records off Elasticsearch boxes / Setup watcher/alerting on
-secondary system"
+  title "The application must provide a real-time alert when
+organization-defined audit failure events occur."
   desc  "Offload and centralize audit records retention to a separate system
 from the sources of audit records."
   impact 0.5
@@ -11,7 +11,7 @@ from the sources of audit records."
   tag "cci": "CCI-000144"
   tag "check": "The necessary monitoring and alerts may be implemented using
 features of elasticsearch, the OS, third-party software, custom code, or a
-combination of these. The term \"the system\" is used to encompass all of
+combination of these. The term 'the system' is used to encompass all of
 these.
 
 Review the system documentation to determine which audit failure events require

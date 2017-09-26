@@ -19,7 +19,7 @@ only_if do
 end
 
 control "V-27063" do
-  title "Disable dynamic templates"
+  title "The application must check the validity of data inputs."
   desc  "Dynamic templates allows for user input to be processed without
 verifying it against a set of expected values. Turning off dynamic templates,
 and creating templates for input can handle type validation."
@@ -39,7 +39,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

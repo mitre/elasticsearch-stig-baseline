@@ -19,7 +19,8 @@ only_if do
 end
 
 control "V-26908" do
-  title "Enable secured communication to and within the Elasticsearch cluster"
+  title "The application must use organization-defined replay-resistant
+authentication mechanisms for network access to non-privileged accounts."
   desc  "Configure PKI authentication, TLS/SSL, IP filtering; which are key
 features of X-Pack Security. This should ensure that authentication and
 communication within Elasticsearch is replay resistant."
@@ -39,7 +40,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

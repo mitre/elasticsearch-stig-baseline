@@ -5,7 +5,7 @@ end
 
 
 control "V-26882" do
-  title "Allocate storage space for Audit records"
+  title "Applications must allocate audit record storage capacity."
   desc  "Provision adequate storage for audit records in an automated fashion
 based upon capacity studies for production systems."
   impact 0.5
@@ -14,15 +14,19 @@ based upon capacity studies for production systems."
   tag "rid": "SV-34162r1_rule"
   tag "stig_id": "SRG-APP-000072"
   tag "cci": "CCI-000137"
-  tag "check": "Run the following command to determine if /var/log/audit is on
-its own partition or logical volume:
-$ mount | grep \"on /var/log/audit \"
-If /var/log/audit has its own partition or volume group, a line will be
-returned. If no line is returned, this is a finding."
-  tag "fix": "Audit logs are stored in the /var/log/audit directory. Ensure
-that it has its own partition or logical volume at installation time, or
-migrate it later using LVM. Make absolutely certain that it is large enough to
-store all audit logs that will be created by the auditing daemon."
+  tag "check": "Run the following command to determine if
+/var/log/elasticsearch/audit is on its own partition or logical volume:
+
+$ mount | grep 'on /var/log/elasticsearch/audit '
+
+If /var/log/elasticsearch/audit has its own partition or volume group, a line
+will be returned. If no line is returned, this is a finding."
+  tag "fix": "Audit logs are stored in the /var/log/elasticsearch/audit
+directory. Ensure that it has its own partition or logical volume at
+installation time, or migrate it later using LVM. Make absolutely certain that
+it is large enough to store all audit logs that will be created by the auditing
+daemon."
+
 
   begin
     describe mount('/var/log/audit') do

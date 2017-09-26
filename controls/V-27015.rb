@@ -19,7 +19,8 @@ only_if do
 end
 
 control "V-27015" do
-  title "Enable secured communication to and within the Elasticsearch cluster"
+  title "Application must ensure  authentication of both client and server
+during the entire session. An example of this is SSL Mutual Authentication."
   desc  "Configure PKI authentication, TLS/SSL, IP filtering; which are key
 features of X-Pack Security. This should ensure that authentication and
 communication within Elasticsearch is SSL Mutual Authentication."
@@ -39,7 +40,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

@@ -3,8 +3,8 @@ only_if do
 end
 
 control "V-27146" do
-  title "Generate Audits to assist monitoring and alerting of activities on the
-system"
+  title "Applications must use internal system clocks to generate time stamps
+for audit records."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
 sufficient context.  X-Pack Security audit controls should be enabled to audit

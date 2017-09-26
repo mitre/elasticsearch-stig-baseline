@@ -1,5 +1,7 @@
 control "V-26912" do
-  title "Ensure Elasticsearch PKI validation meets organizational requirements."
+  title "Applications managing network connectivity must have the capability to
+authenticate devices before establishing network connections by using
+bidirectional authentication that is cryptographically based."
   desc  "Configure the centralized authentication service to enforce
 organization policies such as valid certification path, trusted anchor."
   impact 0.5
@@ -14,7 +16,7 @@ $cat elasticsearch.yml | grep xpack.ssl
 
 xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
-xpack.ssl.certificate_authorities: [ <approved_ca>.crt\" ]
+xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
 If these setting are not set or the underlining certificate and keys are not
 correct, this is a finding.

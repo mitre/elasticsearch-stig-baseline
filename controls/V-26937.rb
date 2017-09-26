@@ -1,6 +1,7 @@
 control "V-26937" do
-  title "Use X-Pack authentication and authorization for all user types, even
-anonymous access"
+  title "The application must uniquely identify and authenticate
+non-organizational users (or processes acting on behalf of non-organizational
+users)."
   desc  "As appropriate, grant Role Based Access Control for organizational
 users, non-organizational users, and anonymous users."
   impact 0.5
@@ -44,16 +45,16 @@ xpack:
         ldap1:
           type: ldap
           order: 0
-          url: \"ldaps://ldap.example.com:636\"
-          bind_dn: \"cn=ldapuser, ou=users, o=services, dc=example, dc=com\"
+          url: 'ldaps://ldap.example.com:636'
+          bind_dn: 'cn=ldapuser, ou=users, o=services, dc=example, dc=com'
           bind_password: changeme
           user_search:
-            base_dn: \"dc=example,dc=com\"
+            base_dn: 'dc=example,dc=com'
             attribute: cn
           group_search:
-            base_dn: \"dc=example,dc=com\"
+            base_dn: 'dc=example,dc=com'
           files:
-            role_mapping: \"CONFIG_DIR/x-pack/role_mapping.yml
+            role_mapping: 'CONFIG_DIR/x-pack/role_mapping.yml
 
 If these settings are not correct or missing, this is a finding.
 
@@ -67,7 +68,7 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
       realms:
         pki1:
           type: pki
-          username_pattern: \"EMAILADDRESS=(.*?)(?:,|$)\"
+          username_pattern: 'EMAILADDRESS=(.*?)(?:,|$)'
 
 If these settings are not correct or missing, this is a finding.
 

@@ -1,5 +1,8 @@
 control "V-26881" do
-  title "Separate the management of authentication policies from Elasticsearch"
+  title "In order to inform the user of failed login attempts made with the
+users account, the application upon successful logon/access must display to the
+user the number of unsuccessful logon/access attempts since the last successful
+logon/access. "
   desc  "Configure the centralized authentication service to enforce
 organization policies such as password strength, lockout, expiration,
 notification, and screen obfuscation."
@@ -44,16 +47,16 @@ xpack:
         ldap1:
           type: ldap
           order: 0
-          url: \"ldaps://ldap.example.com:636\"
-          bind_dn: \"cn=ldapuser, ou=users, o=services, dc=example, dc=com\"
+          url: 'ldaps://ldap.example.com:636'
+          bind_dn: 'cn=ldapuser, ou=users, o=services, dc=example, dc=com'
           bind_password: changeme
           user_search:
-            base_dn: \"dc=example,dc=com\"
+            base_dn: 'dc=example,dc=com'
             attribute: cn
           group_search:
-            base_dn: \"dc=example,dc=com\"
+            base_dn: 'dc=example,dc=com'
           files:
-            role_mapping: \"CONFIG_DIR/x-pack/role_mapping.yml
+            role_mapping: 'CONFIG_DIR/x-pack/role_mapping.yml
 
 If these settings are not correct or missing, this is a finding.
 
@@ -67,7 +70,7 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
       realms:
         pki1:
           type: pki
-          username_pattern: \"EMAILADDRESS=(.*?)(?:,|$)\"
+          username_pattern: 'EMAILADDRESS=(.*?)(?:,|$)'
 
 If these settings are not correct or missing, this is a finding.
 
