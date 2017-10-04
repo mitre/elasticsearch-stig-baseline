@@ -1,11 +1,13 @@
 control "V-26891" do
   title "Applications must validate the binding of the information
 producer\u0089Û¡ÌÝå»s identity to the information."
+  desc  "Offload and centralize audit records retention to a separate system
+from the sources of audit records."
   impact 0.5
   tag "nist": ["AU-10 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34171r1_rule"
-  tag "stig_id": "SRG-APP-000082"
+  tag "gtitle": "SRG-APP-000082"
   tag "cci": "CCI-001339"
   tag "check": "Moving audit records to a centralized location will assist in
 the investigation and non-repudiation of audited actions. Verify 'rsyslog' is

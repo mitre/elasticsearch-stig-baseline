@@ -1,14 +1,14 @@
 control "V-26916" do
   title "The application must support organizational requirements to prohibit
-password reuse for the organization-defined number of generations."
+password reuse for the organizational-defined number of generations."
   desc  "Configure the centralized authentication service to enforce
-organization policies such as password strength, lockout, expiration,
+organizational policies such as password strength, lockout, expiration,
 notification, and screen obfuscation."
   impact 0.5
   tag "nist": ["IA-5 (1) (e)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34196r1_rule"
-  tag "stig_id": "SRG-APP-000165"
+  tag "gtitle": "SRG-APP-000165"
   tag "cci": "CCI-000200"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
@@ -73,8 +73,8 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

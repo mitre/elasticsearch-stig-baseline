@@ -8,7 +8,7 @@ thresholds have been exceeded. "
   tag "nist": ["AU-5 (3)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34197r1_rule"
-  tag "stig_id": "SRG-APP-000105"
+  tag "gtitle": "SRG-APP-000105"
   tag "cci": "CCI-000145"
   tag "check": "Elasticsearch cannot support this requirement without
 assistance from an external application, policy, or service."

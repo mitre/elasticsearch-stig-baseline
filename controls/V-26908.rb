@@ -19,7 +19,7 @@ only_if do
 end
 
 control "V-26908" do
-  title "The application must use organization-defined replay-resistant
+  title "The application must use organizational-defined replay-resistant
 authentication mechanisms for network access to non-privileged accounts."
   desc  "Configure PKI authentication, TLS/SSL, IP filtering; which are key
 features of X-Pack Security. This should ensure that authentication and
@@ -28,7 +28,7 @@ communication within Elasticsearch is replay resistant."
   tag "nist": ["IA-2 (9)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34188r1_rule"
-  tag "stig_id": "SRG-APP-000157"
+  tag "gtitle": "SRG-APP-000157"
   tag "cci": "CCI-000776"
   tag "check": "Application must utilize approved cryptography to establish
 integrity during preparation of data transmission.
@@ -42,7 +42,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:

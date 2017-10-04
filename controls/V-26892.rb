@@ -1,13 +1,13 @@
 control "V-26892" do
   title "The application must provide a real-time alert when
-organization-defined audit failure events occur."
+organizational-defined audit failure events occur."
   desc  "Offload and centralize audit records retention to a separate system
 from the sources of audit records."
   impact 0.5
   tag "nist": ["AU-5 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34172r1_rule"
-  tag "stig_id": "SRG-APP-000104"
+  tag "gtitle": "SRG-APP-000104"
   tag "cci": "CCI-000144"
   tag "check": "The necessary monitoring and alerts may be implemented using
 features of elasticsearch, the OS, third-party software, custom code, or a

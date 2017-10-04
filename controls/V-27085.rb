@@ -6,10 +6,10 @@ exploration of audit records."
   tag "nist": ["AU-7", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34380r1_rule"
-  tag "stig_id": "SRG-APP-000113"
+  tag "gtitle": "SRG-APP-000113"
   tag "cci": "CCI-000156"
   tag "check": "Check Elasticsearch.yml settings and existing audit records to
-verify information specific to the nessacary content of the event is being
+verify information specific to the necessary content of the event is being
 captured and stored with audit records.
 
 As the application administrator (usually elasticsearch, check the
@@ -28,7 +28,7 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html
  If the current settings do not provide enough information regarding the
 content of the event, this is a finding."
   tag "fix": "Configure elasticsearch audit settings to contain sufficient
-information to establish where an event occured.
+information to establish where an event occurred.
 
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"

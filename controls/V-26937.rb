@@ -8,7 +8,7 @@ users, non-organizational users, and anonymous users."
   tag "nist": ["IA-8", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34217r1_rule"
-  tag "stig_id": "SRG-APP-000180"
+  tag "gtitle": "SRG-APP-000180"
   tag "cci": "CCI-000804"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
@@ -73,8 +73,8 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

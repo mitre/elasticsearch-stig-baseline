@@ -1,18 +1,18 @@
 control "V-26934" do
   title "The application must support the enforcement of logical access
 restrictions associated with changes to application configuration."
-  desc  "Separate administration rights into three groups. User Administrators,
+  desc  "Separate administrative rights into three groups. User Administrators,
 Cluster Administrators, and Index Administrators using X-Pack's RBAC and
 limiting access to system user; like elastic, and configuration files with
 operating system controls. Administrators of each type should not be given
-global administration controls outside of their job function."
+global administrative controls outside of their job function."
   impact 0.5
   tag "nist": ["CM-5", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34214r1_rule"
-  tag "stig_id": "SRG-APP-000128"
+  tag "gtitle": "SRG-APP-000128"
   tag "cci": "CCI-000345"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

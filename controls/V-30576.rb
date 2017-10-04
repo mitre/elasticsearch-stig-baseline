@@ -2,13 +2,13 @@ control "V-30576" do
   title "The application must notify appropriate individuals when accounts are
 modified."
   desc  "Configure the centralized authentication service to enforce
-organization policies such as password strength, lockout, expiration,
+organizational policies such as password strength, lockout, expiration,
 notification, and screen obfuscation."
   impact 0.5
   tag "nist": ["AC-2 (4)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-40310r1_rule"
-  tag "stig_id": "SRG-APP-000292"
+  tag "gtitle": "SRG-APP-000292"
   tag "cci": "CCI-001684"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
@@ -73,8 +73,8 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

@@ -23,13 +23,13 @@ control "V-26935" do
 cryptographic module that meet the requirements of applicable federal laws,
 Executive Orders, directives, policies, regulations, standards, and guidance
 for such authentication."
-  desc  "Configure X-Pack to use an organization approved FIPS 140-2 java
+  desc  "Configure X-Pack to use an organizational approved FIPS 140-2 java
 cryptography provider."
   impact 0.5
   tag "nist": ["IA-7", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34215r1_rule"
-  tag "stig_id": "SRG-APP-000179"
+  tag "gtitle": "SRG-APP-000179"
   tag "cci": "CCI-000803"
   tag "check": "Application must utilize approved cryptography that complying
 with applicable federal laws, Executive Orders, directives, policies,
@@ -44,7 +44,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.ssl.cipher_suites:

@@ -12,7 +12,7 @@ based upon capacity studies for production systems."
   tag "nist": ["AU-4", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34162r1_rule"
-  tag "stig_id": "SRG-APP-000072"
+  tag "gtitle": "SRG-APP-000072"
   tag "cci": "CCI-000137"
   tag "check": "Run the following command to determine if
 /var/log/elasticsearch/audit is on its own partition or logical volume:

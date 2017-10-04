@@ -34,10 +34,10 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AU-3", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34144r1_rule"
-  tag "stig_id": "SRG-APP-000100"
+  tag "gtitle": "SRG-APP-000100"
   tag "cci": "CCI-001487"
   tag "check": "Check Elasticsearch.yml settings and existing audit records to
-verify information specific to the nessacary content of the event is being
+verify information specific to the necessary content of the event is being
 captured and stored with audit records.
 
 As the application administrator (usually elasticsearch, check the

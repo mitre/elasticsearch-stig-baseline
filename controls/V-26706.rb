@@ -10,10 +10,10 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AC-2 (4)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33949r1_rule"
-  tag "stig_id": "SRG-APP-000027"
+  tag "gtitle": "SRG-APP-000027"
   tag "cci": "CCI-001403"
   tag "check": "Account termination and notification must be handled by an one
-of the supported external authenitcation mechianism; LDAP, Active Directory, or
+of the supported external authentication mechanism; LDAP, Active Directory, or
 PKI and verify auditing is setup.
 
 If the external authentication is Active Directory; verify the following
@@ -81,8 +81,9 @@ $ cat config/elasticsearch.yml | grep xpack.security.audit.outputs
 If this configuration setting is not present, this is a finding.
 
 If this configuration setting does not contain logfile, this is a finding.     "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism to handle account modification auditing.
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism to handle account
+modification auditing.
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html

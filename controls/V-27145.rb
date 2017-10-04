@@ -8,7 +8,7 @@ summarized in real time."
   tag "nist": ["AU-7 (1)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34444r1_rule"
-  tag "stig_id": "SRG-APP-000115"
+  tag "gtitle": "SRG-APP-000115"
   tag "cci": "CCI-000158"
   tag "check": "Note: The following instructions use the ES_HOME environment
 variable. See supplementary content APPENDIX-F for instructions on configuring

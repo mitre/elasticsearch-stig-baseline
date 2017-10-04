@@ -1,6 +1,6 @@
 control "V-26945" do
-  title "The organization must employ automated mechanisms to restrict the use
-of maintenance tools to authorized personnel only."
+  title "The organizational must employ automated mechanisms to restrict the
+use of maintenance tools to authorized personnel only."
   desc  "Isolate maintenance functions from non-maintenance functions(Cluster
 health) with the use of RBAC under the principle of least privilege.
 Maintenance users should not be granted roles and privileges beyond what is
@@ -9,9 +9,9 @@ necessary to diagnose the system."
   tag "nist": ["MA-3 (4)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34227r1_rule"
-  tag "stig_id": "SRG-APP-NA"
+  tag "gtitle": "SRG-APP-NA"
   tag "cci": "CCI-000872"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

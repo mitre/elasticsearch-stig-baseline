@@ -13,7 +13,7 @@ whitelist of targets (repositories.url.allowed_urls)."
   tag "nist": ["SC-5 (2)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34334r1_rule"
-  tag "stig_id": "SRG-APP-000247"
+  tag "gtitle": "SRG-APP-000247"
   tag "cci": "CCI-001095"
   tag "check": "Utilize network safeguards to limit the ability of
 Elasticsearch to launch DOS attacks. Painless, a sandboxed scripting is the

@@ -7,7 +7,7 @@ from the sources of audit records."
   tag "nist": ["AU-9", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34451r1_rule"
-  tag "stig_id": "SRG-APP-000119"
+  tag "gtitle": "SRG-APP-000119"
   tag "cci": "CCI-000163"
   tag "check": "Moving audit information off of the systems creating the audit
 events protects the information from unauthorized modification. Verify

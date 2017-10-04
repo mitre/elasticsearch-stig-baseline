@@ -2,13 +2,15 @@ control "V-26672" do
   title "The application must have the ability to retain a session lock
 remaining in effect until the user re-authenticates using established
 identification and authentication procedures."
+  desc  "Enforce logical access restrictions with changes to application
+configuration."
   impact 0.5
   tag "nist": ["AC-11 b", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33819r1_rule"
-  tag "stig_id": "SRG-APP-000005"
+  tag "gtitle": "SRG-APP-000005"
   tag "cci": "CCI-000056"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

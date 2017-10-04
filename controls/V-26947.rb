@@ -21,7 +21,7 @@ only_if do
 end
 
 control "V-26947" do
-  title "The organization must audit non-local maintenance and diagnostic
+  title "The organizational must audit non-local maintenance and diagnostic
 sessions."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
@@ -32,10 +32,10 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["MA-4 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34229r1_rule"
-  tag "stig_id": "SRG-APP-NA"
+  tag "gtitle": "SRG-APP-NA"
   tag "cci": "CCI-000880"
   tag "check": "Check Elasticsearch.yml settings and existing audit records to
-verify information specific to the nessacary content of the event is being
+verify information specific to the necessary content of the event is being
 captured and stored with audit records.
 
 As the application administrator (usually elasticsearch, check the
@@ -54,7 +54,7 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html
  If the current settings do not provide enough information regarding the
 content of the event, this is a finding."
   tag "fix": "Configure elasticsearch audit settings to audit non-local
-maintenacne and diagnositic sessions.
+maintenance and diagnostic sessions.
 
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"

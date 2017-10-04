@@ -10,14 +10,14 @@ Security features to restrict access based on information within the document."
   tag "nist": ["AC-16 (4)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33878r1_rule"
-  tag "stig_id": "SRG-APP-000012"
+  tag "gtitle": "SRG-APP-000012"
   tag "cci": "CCI-001427"
   tag "check": "The JSON data models used by a system must maintain
 denormalized or linked security labels and markings for information such that
-the security labels can be changed by administravtive personnel. Data in
-transit is protected via TLS. Utilize X-Pack Security's Field and Document
-Level Security features to restrict access based on information within the
-document.
+the security labels can be changed by administrative personnel. Data in transit
+is protected via TLS. Utilize X-Pack Security's Field and Document Level
+Security features to restrict access based on information within the document.
+
 
 As the security administrator, run the following CURL command:
 
@@ -25,7 +25,7 @@ $ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
 <TEST_CREDENTIALS> https://<elasticsearch>:9200/_xpack/security/role
 
 Review the role permissions, if any role is incorrect or does not provide
-access to security labels of the underliing data model, this is a finding."
+access to security labels of the underlying data model, this is a finding."
   tag "fix": "As an administrative users, verify that you have access to
 security labels within the data model.
 

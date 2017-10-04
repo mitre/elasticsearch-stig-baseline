@@ -5,11 +5,11 @@ end
 control "V-27166" do
   title "The application must have the capability to produce audit records on
 hardware-enforced, write-once media."
-  impact 0.5
+  impact 0.0
   tag "nist": ["AU-9 (1)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34465r1_rule"
-  tag "stig_id": "SRG-APP-000124"
+  tag "gtitle": "SRG-APP-000124"
   tag "cci": "CCI-000165"
   tag "check": "Elasticsearch cannot support this requirement without
 assistance from an external application, policy, or service. This requirement

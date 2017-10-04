@@ -38,7 +38,7 @@ end
 
 control "V-26687" do
   title "The application must ensure remote sessions for accessing an
-organization-defined list of security functions and security-relevant
+organizational-defined list of security functions and security-relevant
 information are audited."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
@@ -49,10 +49,10 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AC-17 (7)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33910r1_rule"
-  tag "stig_id": "SRG-APP-000019"
+  tag "gtitle": "SRG-APP-000019"
   tag "cci": "CCI-001454"
   tag "check": "Check Elasticsearch.yml settings and existing IP filtering
-rules to verify that only sepecific IP behind hardware/software 'Managed
+rules to verify that only specific IP behind hardware/software 'Managed
 access control points' are listed.
 
 As the application administrator (usually elasticsearch, check the
@@ -79,7 +79,7 @@ variable. See supplementary content APPENDIX-XXX for
 instructions on configuring ES_HOME.
 
 To change the Managed access control points of the application, as the
-application administrator, change the following setting in elasticsearch.conf:
+application administrator, change the following setting in elasticsearch.yml:
 
 
 $ sudo su - elasticsearch

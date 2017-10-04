@@ -1,14 +1,19 @@
 control "V-26731" do
   title "The application must automatically audit account termination and
 notify appropriate individuals."
+  desc  "Utilize perimeter, application, centralized authentication, and
+repository audit controls to audit the use of systems in real time with
+sufficient context.  X-Pack Security audit controls should be enabled to audit
+the defaults of all HTTP/S based access to Elasticsearch.  All applications
+should use HTTP/S  rather than Elasticsearch transport protocol."
   impact 0.5
   tag "nist": ["AC-2 (4)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33979r1_rule"
-  tag "stig_id": "SRG-APP-000029"
+  tag "gtitle": "SRG-APP-000029"
   tag "cci": "CCI-001405"
   tag "check": "Account termination and notification must be handled by an one
-of the supported external authenitcation mechianism; LDAP, Active Directory, or
+of the supported external authentication mechanism; LDAP, Active Directory, or
 PKI and verify auditing is setup.
 
 If the external authentication is Active Directory; verify the following
@@ -76,9 +81,9 @@ $ cat config/elasticsearch.yml | grep xpack.security.audit.outputs
 If this configuration setting is not present, this is a finding.
 
 If this configuration setting does not contain logfile, this is a finding.     "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism to handle account termination and
-notification.
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism to handle account termination
+and notification.
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html

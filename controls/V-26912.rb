@@ -3,11 +3,12 @@ control "V-26912" do
 authenticate devices before establishing network connections by using
 bidirectional authentication that is cryptographically based."
   desc  "Configure the centralized authentication service to enforce
-organization policies such as valid certification path, trusted anchor."
+organizational policies such as valid certification path, trusted anchor."
   impact 0.5
   tag "nist": ["IA-3 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34192r1_rule"
+  tag "gtitle": "SRG-APP-000161"
   tag "cci": "CCI-000781"
   tag "check": "Application must utilize approved cryptography to authenticate
 devices.
@@ -18,7 +19,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:

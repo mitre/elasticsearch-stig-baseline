@@ -9,7 +9,7 @@ from the sources of audit records."
   tag "nist": ["AU-6 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34264r1_rule"
-  tag "stig_id": "SRG-APP-000110"
+  tag "gtitle": "SRG-APP-000110"
   tag "cci": "CCI-000152"
   tag "check": "Moving audit records to a centralized location will assist in
 the investigation and response. Verify 'rsyslog' is configured to send all

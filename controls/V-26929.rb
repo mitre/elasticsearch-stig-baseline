@@ -8,7 +8,7 @@ and sign audit logs."
   tag "nist": ["AU-9 (3)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34209r1_rule"
-  tag "stig_id": "SRG-APP-000126"
+  tag "gtitle": "SRG-APP-000126"
   tag "cci": "CCI-001350"
   tag "check": "Elasticsearch cannot support this requirement without
 assistance from an external application, policy, or service."

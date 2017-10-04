@@ -1,15 +1,15 @@
 control "V-26909" do
   title "Applications required to identify devices must uniquely identify and
-authenticate an organization-defined list of specific and/or types of devices
+authenticate an organizational-defined list of specific and/or types of devices
 before establishing a connection."
   desc  "Configure the Elasticsearch cluster to use a centralized
 authentication and authorization service such as Active Directory or LDAP in
-order to comply with organization defined management policies."
+order to comply with organizational defined management policies."
   impact 0.5
   tag "nist": ["IA-3", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34189r1_rule"
-  tag "stig_id": "SRG-APP-000158"
+  tag "gtitle": "SRG-APP-000158"
   tag "cci": "CCI-000778"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
@@ -74,8 +74,8 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

@@ -7,21 +7,21 @@ expiration times, to enable users to implement out of the ordinary processes."
   tag "nist": ["AC-3", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33983r1_rule"
-  tag "stig_id": "SRG-APP-000033"
+  tag "gtitle": "SRG-APP-000033"
   tag "cci": "CCI-000213"
   tag "check": "Verify that role-based policies are in place and access
-enforement mechanisms are in place.
+enforcement mechanisms are in place.
 
 As the elasticsearch administrator, run the following CURL command:
 
 $ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
 <TEST_CREDENTIALS> https://<elasticsearch>:9200/_xpack/security/role
 
-Review the role permissions, if any role is incorrect or provices access to
-cluster configuration outside of administration roles, this is a finding.
+Review the role permissions, if any role is incorrect or provides access to
+cluster configuration outside of administrative roles, this is a finding.
 
 Check Elasticsearch.yml settings and existing IP filtering rules to verify that
-only sepecific IP behind hardware/software 'Managed access control points'
+only specific IP behind hardware/software 'Managed access control points'
 are listed.
 
 As the application administrator (usually elasticsearch, check the
@@ -54,7 +54,7 @@ Note: The following instructions use the ES_HOME environment variable. See
 supplementary content APPENDIX-XXX for instructions on configuring ES_HOME.
 
 To establish an access control mechanism; as the application administrator,
-change the following setting in elasticsearch.conf:
+change the following setting in elasticsearch.yml:
 
 $ sudo su - elasticsearch
 $ vi $ES_HOME/config/elasticsearch.yml

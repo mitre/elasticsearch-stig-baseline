@@ -10,7 +10,7 @@ encryption utilizing key management not governed by the data repository."
   tag "nist": ["SC-28 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-37459r1_rule"
-  tag "stig_id": "SRG-APP-000232"
+  tag "gtitle": "SRG-APP-000232"
   tag "cci": "CCI-001200"
   tag "check": "Determine if encryption must be used to protect data on the
 system. If encryption must be used and is not employed, this is a finding."
@@ -21,7 +21,7 @@ encrypt the root partition:
 part / --fstype=ext4 --size=100 --onpart=hda1 --encrypted
 --passphrase=PASSPHRASE
 Any PASSPHRASE is stored in the Kickstart in plaintext, and the Kickstart must
-then be protected accordingly. Omitting the --passphrase= option from the
+than be protected accordingly. Omitting the --passphrase= option from the
 partition definition will cause the installer to pause and interactively ask
 for the passphrase during installation.
 

@@ -1,5 +1,5 @@
 control "V-26675" do
-  title "The application must maintain and support the use of organization
+  title "The application must maintain and support the use of organizational
 defined security attributes to information in transmission."
   desc  "The JSON data models used by a system must maintain denormalized or
 linked security labels and markings for information such that the information
@@ -11,7 +11,7 @@ on information within the document."
   tag "nist": ["AC-16", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33823r1_rule"
-  tag "stig_id": "SRG-APP-000008"
+  tag "gtitle": "SRG-APP-000008"
   tag "cci": "CCI-001401"
   tag "check": "The JSON data models used by a system must maintain
 denormalized or linked security labels and markings for information such that

@@ -1,11 +1,13 @@
 control "V-26890" do
   title "The application must associate the identity of the information
 producer with the information."
+  desc  "Offload and centralize audit records retention to a separate system
+from the sources of audit records."
   impact 0.5
   tag "nist": ["AU-10 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34170r1_rule"
-  tag "stig_id": "SRG-APP-000081"
+  tag "gtitle": "SRG-APP-000081"
   tag "cci": "CCI-001338"
   tag "check": "Moving audit records to a centralized location will assist in
 the investigation and non-repudiation of audited actions. Verify 'rsyslog' is

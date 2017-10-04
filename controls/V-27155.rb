@@ -21,13 +21,13 @@ end
 control "V-27155" do
   title "Applications must employ FIPS-validated or NSA-approved cryptography
 to implement digital signatures."
-  desc  "Configure X-Pack Security to use an organization approved FIPS 140-2
+  desc  "Configure X-Pack Security to use an organizational approved FIPS 140-2
 java cryptography provider."
   impact 0.5
   tag "nist": ["SC-13 (4)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34454r1_rule"
-  tag "stig_id": "SRG-APP-NA"
+  tag "gtitle": "SRG-APP-NA"
   tag "cci": "CCI-001148"
   tag "check": "Application must utilize approved cryptography to establish
 implement digital signatures.
@@ -41,7 +41,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.ssl.cipher_suites:
@@ -56,7 +56,7 @@ $curl -H 'Content-Type: application/json' -u <TEST_USER> -p <TEST_CREDENTIALS>
 http://<elasticsearchIP:9200>/
 
 If a 200 response comes back, this is a finding."
-  tag "fix": "Employ approved cryptography to implment digital signatures.
+  tag "fix": "Employ approved cryptography to implement digital signatures.
 
 
 See the official documentation for the complete  guide on establishing SSL

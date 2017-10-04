@@ -13,15 +13,15 @@ control "V-26927" do
 validate certificates by constructing a certification path with status
 information to an accepted trust anchor."
   desc  "Configure the centralized authentication service to enforce
-organization policies such as valid certification path, trusted anchor,
+organizational policies such as valid certification path, trusted anchor,
 certificate revocation lists."
   impact 0.5
   tag "nist": ["IA-5 (2) (a)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34207r1_rule"
-  tag "stig_id": "SRG-APP-000175"
+  tag "gtitle": "SRG-APP-000175"
   tag "cci": "CCI-000185"
-  tag "check": "When using PKI-basd authentication; the certificate path must
+  tag "check": "When using PKI-based authentication; the certificate path must
 be validated.
 
 $ cat config/elasticsearch.yml | grep -A 10 -B 6 'type: \\?pki'
@@ -37,8 +37,8 @@ $ cat config/elasticsearch.yml | grep -A 10 -B 6 'type: \\?pki'
           truststore.path: <TS_PATH>
 
 If these settings are not correct or missing, this is a finding.  "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

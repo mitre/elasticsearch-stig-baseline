@@ -1,14 +1,14 @@
 control "V-27168" do
   title "The application must support the requirement to back up audit data and
 records onto a different system or media than the system being audited on an
-organization-defined frequency."
+organizational-defined frequency."
   desc  "Offload and centralize audit records retention to a separate system
 from the sources of audit records."
   impact 0.5
   tag "nist": ["AU-9 (2)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34467r1_rule"
-  tag "stig_id": "SRG-APP-000125"
+  tag "gtitle": "SRG-APP-000125"
   tag "cci": "CCI-001348"
   tag "check": "Check Elasticsearch.yml settings and existing audit records are
 being recorded to an external system or media.

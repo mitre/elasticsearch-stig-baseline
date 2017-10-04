@@ -1,18 +1,18 @@
 control "V-26961" do
   title "Applications must adhere to the principles of least functionality by
 providing only essential capabilities."
-  desc  "Separate administration rights into three groups. User Administrators,
+  desc  "Separate administrative rights into three groups. User Administrators,
 Cluster Administrators, and Index Administrators using X-Pack's RBAC and
 limiting access to System accounts and configuration files with operating
 system controls. Administrators of each type should not be given global
-administration controls outside of their job function."
+administrative controls outside of their job function."
   impact 0.5
   tag "nist": ["CM-7 a", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34246r1_rule"
-  tag "stig_id": "SRG-APP-000141"
+  tag "gtitle": "SRG-APP-000141"
   tag "cci": "CCI-000381"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

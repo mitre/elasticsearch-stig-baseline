@@ -48,10 +48,10 @@ system."
   tag "nist": ["AC-4 (17) (a)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34027r1_rule"
-  tag "stig_id": "SRG-APP-000051"
+  tag "gtitle": "SRG-APP-000051"
   tag "cci": "CCI-001555"
   tag "check": "Check Elasticsearch.yml settings and existing IP filtering
-rules to verify that only sepecific IP behind hardware/software 'Managed
+rules to verify that only specific IP behind hardware/software 'Managed
 access control points' are listed.
 
 As the application administrator (usually elasticsearch, check the
@@ -78,7 +78,7 @@ variable. See supplementary content APPENDIX-XXX for
 instructions on configuring ES_HOME.
 
 To change the Managed access control points of the application, as the
-application administrator, change the following setting in elasticsearch.conf:
+application administrator, change the following setting in elasticsearch.yml:
 
 
 $ sudo su - elasticsearch

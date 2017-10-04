@@ -27,7 +27,7 @@ and creating templates for input can handle type validation."
   tag "nist": ["SI-10", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34358r1_rule"
-  tag "stig_id": "SRG-APP-000251"
+  tag "gtitle": "SRG-APP-000251"
   tag "cci": "CCI-001310"
   tag "check": "Application must utilize approved cryptography to validate data
 input.
@@ -41,7 +41,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled

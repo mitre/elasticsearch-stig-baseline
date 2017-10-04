@@ -23,12 +23,12 @@ control "V-26924" do
 password encryption for transmission."
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
-be configured with organization approved cryptography."
+be configured with organizational approved cryptography."
   impact 0.5
   tag "nist": ["IA-5 (1) (c)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34204r1_rule"
-  tag "stig_id": "SRG-APP-000172"
+  tag "gtitle": "SRG-APP-000172"
   tag "cci": "CCI-000197"
   tag "check": "Application must utilize approved cryptography to protect
 remote access sessions.
@@ -42,7 +42,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled: true

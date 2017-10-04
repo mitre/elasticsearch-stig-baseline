@@ -12,7 +12,7 @@ systems and into central audit logging solution."
   tag "nist": ["AU-9", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34463r1_rule"
-  tag "stig_id": "SRG-APP-000122"
+  tag "gtitle": "SRG-APP-000122"
   tag "cci": "CCI-001494"
   tag "check": "Note: The following instructions use the ES_HOME environment
 variable. See supplementary content APPENDIX-F for instructions on configuring

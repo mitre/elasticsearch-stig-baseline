@@ -1,7 +1,7 @@
 control "V-26889" do
   title "Applications themselves, or the logging mechanism the application
 utilizes, must provide a warning when allocated audit record storage volume
-reaches an organization-defined percentage of maximum audit record storage
+reaches an organizational-defined percentage of maximum audit record storage
 capacity."
   desc  "Monitor the health and resources (such as remaining storage) of
 systems running Elasticsearch software and notify operators when safety
@@ -10,7 +10,7 @@ thresholds have been exceeded. "
   tag "nist": ["AU-5 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34169r1_rule"
-  tag "stig_id": "SRG-APP-000103"
+  tag "gtitle": "SRG-APP-000103"
   tag "cci": "CCI-000143"
   tag "check": "Verify the operating system immediately notifies the SA and
 ISSO (at a minimum) when allocated audit record storage volume reaches

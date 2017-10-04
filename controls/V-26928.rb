@@ -2,14 +2,14 @@ control "V-26928" do
   title "The application, when using PKI-based authentication, must enforce
 authorized access to the corresponding private key."
   desc  "Ensure PKI Private Key is stored with properly ACL on operating
-system, and the storage disks are setup with encryption-at-rest."
+system, and the storage disks are set up with encryption-at-rest."
   impact 0.5
   tag "nist": ["IA-5 (2) (b)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34208r1_rule"
-  tag "stig_id": "SRG-APP-000176"
+  tag "gtitle": "SRG-APP-000176"
   tag "cci": "CCI-000186"
-  tag "check": "When using PKI-basd authentication, it is critical to enforce
+  tag "check": "When using PKI-based authentication, it is critical to enforce
 authorized access.
 
 $ cat config/elasticsearch.yml | grep -A 10 -B 6 'type: \\?pki'

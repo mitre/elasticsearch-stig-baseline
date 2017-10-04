@@ -11,7 +11,7 @@ Security features to restrict access based on information within the document."
   tag "nist": ["AC-16 (3)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33877r1_rule"
-  tag "stig_id": "SRG-APP-000011"
+  tag "gtitle": "SRG-APP-000011"
   tag "cci": "CCI-001426"
   tag "check": "The JSON data models used by a system must maintain
 denormalized or linked security labels and markings for information such that

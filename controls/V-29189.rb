@@ -3,15 +3,15 @@ control "V-29189" do
 information flow control from both non-security functions and from other
 security functions."
   desc  "Isolate security functions from non security functions with the use of
-RBAC under the principle of least privilege. Administration users should not be
+RBAC under the principle of least privilege. administrative users should not be
 granted roles and privileges beyond what is necessary to administer the system."
   impact 0.5
   tag "nist": ["SC-3 (2)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-37460r1_rule"
-  tag "stig_id": "SRG-APP-000235"
+  tag "gtitle": "SRG-APP-000235"
   tag "cci": "CCI-001086"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

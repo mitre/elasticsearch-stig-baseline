@@ -7,11 +7,11 @@ read-only access for application or anonymous access, as appropriate."
   tag "nist": ["SC-14", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34458r1_rule"
-  tag "stig_id": "SRG-APP-000201"
+  tag "gtitle": "SRG-APP-000201"
   tag "cci": "CCI-001149"
   tag "check": "Elasticsearch enforces access restrictions based on Role Based
-Acces Control. Other access controls should be handled by the Operating System.
-
+Access Control. Other access controls should be handled by the Operating
+System.
 
 As the application administrator (shown here as 'elasticsearch'), verify the
 permissions for ES_HOME:
@@ -26,9 +26,9 @@ As the elasticsearch administrator, run the following CURL command:
 $ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
 <TEST_CREDENTIALS> https://<elasticsearch>:9200/_xpack/security/role
 
-Review the role permissions, if any role is incorrect or provices access to
-cluster configuration outside of administration roles, this is a finding."
-  tag "fix": "Enforce the protection needs of public infomraiton in the same
+Review the role permissions, if any role is incorrect or provides access to
+cluster configuration outside of administrative roles, this is a finding."
+  tag "fix": "Enforce the protection needs of public information in the same
 manner as normal access restrictions.
 
 See the official documentation for the complete  guide on authorization

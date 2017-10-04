@@ -22,11 +22,14 @@ control "V-26894" do
   title "The application must validate the binding of the reviewer identity to
 the information at the transfer/release point prior to release/transfer from
 one security domain to another security domain."
+  desc  "Use SSL / TLS communication for all networked access to Elasticsearch
+and connected components such as Kibana and Logstash.  X-Pack Security should
+be configured with organizational approved cryptography."
   impact 0.5
   tag "nist": ["AU-10 (4) (a)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34174r1_rule"
-  tag "stig_id": "SRG-APP-000084"
+  tag "gtitle": "SRG-APP-000084"
   tag "cci": "CCI-001341"
   tag "check": "Application must utilize protective mechanisms when
 recieving/transfering from one security domain to another.
@@ -40,7 +43,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled: true

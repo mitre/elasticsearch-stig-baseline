@@ -10,10 +10,10 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AU-14 (2)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34185r1_rule"
-  tag "stig_id": "SRG-APP-000093"
+  tag "gtitle": "SRG-APP-000093"
   tag "cci": "CCI-001462"
   tag "check": "Check Elasticsearch.yml settings and existing audit records to
-verify information specific to the nessacary content of the event is being
+verify information specific to the necessary content of the event is being
 captured and stored with audit records.
 
 As the application administrator (usually elasticsearch, check the
@@ -32,7 +32,7 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html
  If the current settings do not provide enough information regarding the
 content of the event, this is a finding."
   tag "fix": "Configure elasticsearch audit settings to contain sufficient
-information to establish the outcome of an event occured.
+information to establish the outcome of an event occurred.
 
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"

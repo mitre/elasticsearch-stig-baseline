@@ -9,11 +9,11 @@ allocated to the system"
   tag "nist": ["AC-6 (4)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34080r1_rule"
-  tag "stig_id": "SRG-APP-000064"
+  tag "gtitle": "SRG-APP-000064"
   tag "cci": "CCI-000226"
-  tag "check": "If organiziational required, install elasticsearch on virtual
+  tag "check": "If organizational required, install elasticsearch on virtual
 machines or other container technology to further encapsulate the privileges
 and resources allocated to the system."
-  tag "fix": "Encapsulate elasticsearch to virtual resources as organiziational
+  tag "fix": "Encapsulate elasticsearch to virtual resources as organizational
 required."
 end

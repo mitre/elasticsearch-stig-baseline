@@ -24,12 +24,12 @@ unauthorized disclosure of information during transmission unless the
 transmitted data is otherwise protected by alternative physical measures."
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
-be configured with organization approved cryptography."
+be configured with organizational approved cryptography."
   impact 0.5
   tag "nist": ["SC-9 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34356r1_rule"
-  tag "stig_id": "SRG-APP-000264"
+  tag "gtitle": "SRG-APP-000264"
   tag "cci": "CCI-001131"
   tag "check": "Application must utilize approved cryptography to protect data
 transmission.
@@ -43,7 +43,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:

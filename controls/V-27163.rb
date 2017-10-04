@@ -9,11 +9,11 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AU-9", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34462r1_rule"
-  tag "stig_id": "SRG-APP-000121"
+  tag "gtitle": "SRG-APP-000121"
   tag "cci": "CCI-001493"
   tag "check": "The owner of all log files written by the application should be
 elasticsearch. These log files are determined by the
-xpack.security.audit.output paramter in elasticsearch.yml and typically all
+xpack.security.audit.output parameter in elasticsearch.yml and typically all
 appear in /var/log/elasticsearch/audit. To see the owner of a given log file,
 run the following command:
 

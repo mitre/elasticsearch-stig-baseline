@@ -11,10 +11,10 @@ certificates."
   tag "nist": ["SC-17", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34471r1_rule"
-  tag "stig_id": "SRG-APP-000205"
+  tag "gtitle": "SRG-APP-000205"
   tag "cci": "CCI-001159"
   tag "check": "Application must obtain public key certificates from an
-apporved service provider.
+approved service provider.
 
 As the application administrator (usually elasticsearch), check the xpack.ssl
 settings are set to approved public key certificates.
@@ -31,7 +31,7 @@ certificate authority.
 
 Configure Elasticsearch to accept only DoD and DoD-approved PKI end-entity
 certificates. Verify that xpack.ssl.certificate_authorities is pointing to the
-trusted certificate authority from an approved service providoer.
+trusted certificate authority from an approved service provider.
 
 See the official documentation for the complete  guide on establishing SSL
 configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"

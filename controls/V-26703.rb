@@ -3,15 +3,15 @@ control "V-26703" do
 after a 35 day period of account inactivity."
   desc  "Configure the X-Pack Security to use a centralized authentication and
 authorization service such as Active Directory or LDAP in order to comply with
-organization defined management policies."
+organizational defined management policies."
   impact 0.5
   tag "nist": ["AC-2 (3)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33946r1_rule"
-  tag "stig_id": "SRG-APP-000025"
+  tag "gtitle": "SRG-APP-000025"
   tag "cci": "CCI-000017"
   tag "check": "Account disabling must be handled by an one of the supported
-external authenitcation mechianism; LDAP, Active Directory, or PKI.
+external authentication mechanism; LDAP, Active Directory, or PKI.
 
 If the external authentication is Active Directory; verify the following
 settings.
@@ -78,8 +78,8 @@ $ cat config/elasticsearch.yml | grep xpack.security.audit.outputs
 If this configuration setting is not present, this is a finding.
 
 If this configuration setting does not contain logfile, this is a finding.     "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism to handle account disabling.
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism to handle account disabling.
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html "

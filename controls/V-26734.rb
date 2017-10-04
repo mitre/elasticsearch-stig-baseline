@@ -10,7 +10,7 @@ on information within the document."
   tag "nist": ["AC-21 (1)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33982r1_rule"
-  tag "stig_id": "SRG-APP-000032"
+  tag "gtitle": "SRG-APP-000032"
   tag "cci": "CCI-000099"
   tag "check": "The JSON data models used by a system must maintain
 denormalized or linked security labels and markings for information such that
@@ -24,8 +24,8 @@ As the elasticsearch administrator, run the following CURL command:
 $ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
 <TEST_CREDENTIALS> https://<elasticsearch>:9200/_xpack/security/role
 
-Review the role permissions, if any role is incorrect or provices access to
-cluster configuration outside of administration roles, this is a finding."
+Review the role permissions, if any role is incorrect or provides access to
+cluster configuration outside of administrative roles, this is a finding."
   tag "fix": "As a data owner, build a data model that is denormalized or
 linked security labels and markings for information such that the information
 can be used for automated policy actions by applications and Elasticsearch

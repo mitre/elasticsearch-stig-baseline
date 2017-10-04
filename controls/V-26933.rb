@@ -11,7 +11,7 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AU-9 (4) (b)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34213r1_rule"
-  tag "stig_id": "SRG-APP-000127"
+  tag "gtitle": "SRG-APP-000127"
   tag "cci": "CCI-001352"
   tag "check": "Note: The following instructions use the ES_HOME environment
 variable. See supplementary content APPENDIX-F for instructions on configuring

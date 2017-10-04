@@ -1,14 +1,14 @@
 control "V-27147" do
   title "The application must synchronize with internal information system
-clocks which in turn, are synchronized on an organization-defined frequency
-with an organization-defined authoritative time source. "
+clocks which in turn, are synchronized on an organizational-defined frequency
+with an organizational-defined authoritative time source. "
   desc  "Synchronize operating system clocks with an organizational
 authoritative source using NTP."
   impact 0.5
   tag "nist": ["AU-8 (1)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34446r1_rule"
-  tag "stig_id": "SRG-APP-000117"
+  tag "gtitle": "SRG-APP-000117"
   tag "cci": "CCI-000160"
   tag "check": "To verify that a remote NTP service is configured for time
 synchronization, open the following file:
@@ -47,6 +47,6 @@ NTP server for ntpserver:
 
 server ntpserver
 
-This instructs the NTP software to contact that remote server to obtain time data."
-
+This instructs the NTP software to contact that remote server to obtain time
+data."
 end

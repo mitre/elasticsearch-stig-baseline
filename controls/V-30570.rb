@@ -8,9 +8,9 @@ discovery, and enable unicast only to known elasticsearch cluster nodes."
   tag "nist": ["AC-17 e", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-40299r1_rule"
-  tag "stig_id": "SRG-APP-000140"
+  tag "gtitle": "SRG-APP-000140"
   tag "cci": "CCI-000066"
-  tag "check": "Verify that external authenitcation mechianism is in place,
+  tag "check": "Verify that external authentication mechanism is in place,
 LDAP, Active Directory, or PKI and verify auditing is setup.
 
 If the external authentication is Active Directory; verify the following
@@ -78,8 +78,8 @@ $ cat config/elasticsearch.yml | grep xpack.security.audit.outputs
 If this configuration setting is not present, this is a finding.
 
 If this configuration setting does not contain logfile, this is a finding.     "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html

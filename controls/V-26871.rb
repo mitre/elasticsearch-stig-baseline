@@ -8,7 +8,7 @@ from the sources of audit records."
   tag "nist": ["AU-3 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34151r1_rule"
-  tag "stig_id": "SRG-APP-000102"
+  tag "gtitle": "SRG-APP-000102"
   tag "cci": "CCI-000136"
   tag "check": "Verify 'rsyslog' is configured to send specified messages to
 a log aggregation server.

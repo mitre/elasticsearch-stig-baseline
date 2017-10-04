@@ -8,9 +8,9 @@ permissions necessary to complete the installation or upgrade."
   tag "nist": ["CM-5 (6)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34232r1_rule"
-  tag "stig_id": "SRG-APP-000133"
+  tag "gtitle": "SRG-APP-000133"
   tag "cci": "CCI-001499"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

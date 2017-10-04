@@ -38,7 +38,7 @@ end
 
 control "V-26688" do
   title "Applications must support the capability to disable network protocols
-deemed by the organization to be nonsecure except for explicitly identified
+deemed by the organizational to be nonsecure except for explicitly identified
 components in support of specific operational requirements."
   desc  "Limit network access to Elasticsearch software from known points of
 origin with the use of software and hardware firewalls as well as X-Pack
@@ -49,10 +49,10 @@ unique value for all elasticsearch nodes and all applications should use HTTP/S
   tag "nist": ["AC-17 (8)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33911r1_rule"
-  tag "stig_id": "SRG-APP-000020"
+  tag "gtitle": "SRG-APP-000020"
   tag "cci": "CCI-001436"
   tag "check": "Check Elasticsearch.yml settings and existing IP filtering
-rules to verify that only sepecific IP behind hardware/software 'Managed
+rules to verify that only specific IP behind hardware/software 'Managed
 access control points' are listed.
 
 As the application administrator (usually elasticsearch, check the
@@ -79,7 +79,7 @@ variable. See supplementary content APPENDIX-XXX for
 instructions on configuring ES_HOME.
 
 To change the Managed access control points of the application, as the
-application administrator, change the following setting in elasticsearch.conf:
+application administrator, change the following setting in elasticsearch.yml:
 
 
 $ sudo su - elasticsearch

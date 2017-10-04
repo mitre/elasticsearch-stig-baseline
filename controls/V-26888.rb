@@ -1,11 +1,13 @@
 control "V-26888" do
   title "The application must protect against an individual falsely denying
 having performed a particular action."
+  desc  "Offload and centralize audit records retention to a separate system
+from the sources of audit records."
   impact 0.5
   tag "nist": ["AU-10", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34168r1_rule"
-  tag "stig_id": "SRG-APP-000080"
+  tag "gtitle": "SRG-APP-000080"
   tag "cci": "CCI-000166"
   tag "check": "Moving audit records to a centralized location will assist in
 the investigation and non-repudiation of audited actions. Verify 'rsyslog' is

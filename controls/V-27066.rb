@@ -10,9 +10,9 @@ development. Secure error logs with OS level protections."
   tag "nist": ["SI-11 b", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34361r1_rule"
-  tag "stig_id": "SRG-APP-000267"
+  tag "gtitle": "SRG-APP-000267"
   tag "cci": "CCI-001314"
-  tag "check": "The error logs and audit logs should be restricited to
+  tag "check": "The error logs and audit logs should be restricted to
 application owner. i.e. /var/log/elasticsearch/audit folder must have mode 0644
 or less permissive for elasticsearch user.
 

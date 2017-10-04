@@ -12,7 +12,7 @@ accessible by unauthorized users."
   tag "nist": ["AU-9", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34459r1_rule"
-  tag "stig_id": "SRG-APP-000120"
+  tag "gtitle": "SRG-APP-000120"
   tag "cci": "CCI-000164"
   tag "check": "The /var/log/elasticsearch/audit folder must have mode 0644 or
 less permissive.

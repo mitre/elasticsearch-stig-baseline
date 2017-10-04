@@ -8,7 +8,7 @@ features of elasticsearch."
   tag "nist": ["CP-9 (a)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34251r1_rule"
-  tag "stig_id": "SRG-APP-000145"
+  tag "gtitle": "SRG-APP-000145"
   tag "cci": "CCI-000535"
   tag "check": "User-level information is maintained within the standard
 backup/restore functionality within the application. A cronjob should be
@@ -36,10 +36,10 @@ https://<elasticsearch>:9200/_snapshot/<REPOSITORY_NAME>/_verify?pretty=true
 
 Review the results, if error message is returned, this is a finding.
 
-If no script/tool is scheduled to perform a snaphost at the
+If no script/tool is scheduled to perform a snapshot at the
 <ORGANIZATIONAL_DEFINED> frequency, this is a finding.
      "
-  tag "fix": "Setup roles, role mapping, repository, and cron job to faciliate
+  tag "fix": "Setup roles, role mapping, repository, and cron job to facilitate
 Backup/ Disaster Recovery including user-level information.
 
 See the official documentation for the guide on roles:
@@ -67,9 +67,5 @@ curl -XPUT
 
 ##### Example Snapshot Script
 
-Schedule this script in cron to run at <ORGANIZATIONAL_DEFINED> frequency.
-
-
-
-"
+Schedule this script in cron to run at <ORGANIZATIONAL_DEFINED> frequency."
 end

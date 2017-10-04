@@ -23,16 +23,16 @@ control "V-27154" do
 unclassified information when such information must be separated from
 individuals who have the necessary clearances yet lack the necessary access
 approvals."
-  desc  "Configure X-Pack Security to use an organization approved FIPS 140-2
+  desc  "Configure X-Pack Security to use an organizational approved FIPS 140-2
 java cryptography provider."
   impact 0.5
   tag "nist": ["SC-13 (3)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34453r1_rule"
-  tag "stig_id": "SRG-APP-000199"
+  tag "gtitle": "SRG-APP-000199"
   tag "cci": "CCI-001147"
   tag "check": "Application must utilize approved cryptography for data
-seperation.
+separation.
 
 As the application administrator (usually elasticsearch), check the xpack.ssl
 settings are set to the correct values.
@@ -43,7 +43,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.ssl.cipher_suites:
@@ -58,7 +58,7 @@ $curl -H 'Content-Type: application/json' -u <TEST_USER> -p <TEST_CREDENTIALS>
 http://<elasticsearchIP:9200>/
 
 If a 200 response comes back, this is a finding."
-  tag "fix": "Employ approved cryptography for data seperations.
+  tag "fix": "Employ approved cryptography for data separations.
 
 See the official documentation for the complete  guide on establishing SSL
 configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"

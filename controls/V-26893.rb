@@ -10,7 +10,7 @@ or release."
   tag "nist": ["AU-10 (3)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34173r1_rule"
-  tag "stig_id": "SRG-APP-000083"
+  tag "gtitle": "SRG-APP-000083"
   tag "cci": "CCI-001340"
   tag "check": "Moving audit records to a centralized location will assist in
 the investigation and non-repudiation of audited actions. Verify 'rsyslog' is

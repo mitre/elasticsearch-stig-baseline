@@ -7,7 +7,7 @@ Elasticsearch nodes in near-real time to enable audit monitoring."
   tag "nist": ["AC-17 (1)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33904r1_rule"
-  tag "stig_id": "SRG-APP-000016"
+  tag "gtitle": "SRG-APP-000016"
   tag "cci": "CCI-000067"
   tag "check": "Note: The following instructions use the ES_HOME environment
 variable. See supplementary content APPENDIX-F for instructions on configuring

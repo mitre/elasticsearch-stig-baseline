@@ -24,7 +24,7 @@ end
 control "V-26896" do
   title "The application must provide the capability to compile audit records
 from multiple components within the system into a system-wide (logical or
-physical) audit trail that is time-correlated to within organization-defined
+physical) audit trail that is time-correlated to within organizational-defined
 level of tolerance."
   desc  "Utilize perimeter, application, centralized authentication, and
 repository audit controls to audit the use of systems in real time with
@@ -35,10 +35,10 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AU-12 (1)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34176r1_rule"
-  tag "stig_id": "SRG-APP-000086"
+  tag "gtitle": "SRG-APP-000086"
   tag "cci": "CCI-000174"
   tag "check": "Check Elasticsearch.yml settings and existing audit records to
-verify information specific to the nessacary content of the event is being
+verify information specific to the necessary content of the event is being
 captured and stored with audit records.
 
 As the application administrator (usually elasticsearch, check the
@@ -57,7 +57,7 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html
  If the current settings do not provide enough information regarding the
 content of the event, this is a finding."
   tag "fix": "Configure elasticsearch audit settings to contain sufficient
-information to establish where an event occured.
+information to establish where an event occurred.
 
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"

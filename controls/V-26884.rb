@@ -1,14 +1,14 @@
 control "V-26884" do
   title "The application must notify the user of the number of unsuccessful
-login/access attempts occurring during an organization-defined time period."
+login/access attempts occurring during an organizational-defined time period."
   desc  "Configure the centralized authentication service to enforce
-organization policies such as password strength, lockout, expiration,
+organizational policies such as password strength, lockout, expiration,
 notification, and screen obfuscation."
   impact 0.5
   tag "nist": ["AC-9 (2)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34164r1_rule"
-  tag "stig_id": "SRG-APP-000078"
+  tag "gtitle": "SRG-APP-000078"
   tag "cci": "CCI-001392"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
@@ -73,8 +73,8 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

@@ -22,13 +22,13 @@ control "V-26953" do
   title "The application must employ cryptographic mechanisms to protect the
 integrity and confidentiality of non-local maintenance and diagnostic
 communications."
-  desc  "Configure X-Pack Security to use an organization approved FIPS 140-2
+  desc  "Configure X-Pack Security to use an organizational approved FIPS 140-2
 java cryptography provider."
   impact 0.5
   tag "nist": ["MA-4 (6)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34236r1_rule"
-  tag "stig_id": "SRG-APP-000184"
+  tag "gtitle": "SRG-APP-000184"
   tag "cci": "CCI-000888"
   tag "check": "Application must utilize approved cryptography to protect the
 integrity and confidentiality.
@@ -41,7 +41,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:

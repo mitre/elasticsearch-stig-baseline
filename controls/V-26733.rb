@@ -8,10 +8,10 @@ RBAC policies with X-Pack Security to reflect the dynamic attributes of users.
   tag "nist": ["AC-2 (6)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33981r1_rule"
-  tag "stig_id": "SRG-APP-000031"
+  tag "gtitle": "SRG-APP-000031"
   tag "cci": "CCI-000020"
   tag "check": "To establish dynamic privilege controls, elasticsearch relies
-on external authenitcation mechanism (LADP, AD, PKI), time to live (cache.ttl),
+on external authentication mechanism (LDAP, AD, PKI), time to live (cache.ttl),
 and document/field level security.
 
 If the external authentication is Active Directory; verify the following
@@ -74,12 +74,21 @@ If these settings are not correct or missing, this is a finding.
 The default cache.ttl is 20m.
 
 As a data owner, you can verify that your data model holds fields that can be
-used to assist in privilege managment.
+used to assist in privilege management.
+
+As the elasticsearch administrator, you can verify that roles exists that are
+specific to data access, run the following CURL command:
+
+$ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
+<TEST_CREDENTIALS> https://localhost:9200/_xpack/security/role
+
+Review the role permissions, if any role is incorrect or provides general
+access to all data, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism to handle account termination and
-notification.
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism to handle account termination
+and notification.
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html

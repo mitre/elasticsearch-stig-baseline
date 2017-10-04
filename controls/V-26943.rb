@@ -1,16 +1,16 @@
 control "V-26943" do
-  title "Applications must prevent the installation of organization-defined
+  title "Applications must prevent the installation of organizational-defined
 critical software programs not signed with a certificate that has been
-recognized and approved by the organization."
+recognized and approved by the organizational."
   desc  "Elastic components should be installed from approved and controlled
 copies of the software only.  The binary hashes of the approved software (down
 to the patch level) should be routinely check according to the policies of the
-organization."
+organizational."
   impact 0.5
   tag "nist": ["CM-5 (3)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34224r1_rule"
-  tag "stig_id": "SRG-APP-000131"
+  tag "gtitle": "SRG-APP-000131"
   tag "cci": "CCI-000352"
   tag "check": "Elasticsearch, Inc. signs all of packages with the
 Elasticsearch Signing Key (PGP key D88E42B4, available from

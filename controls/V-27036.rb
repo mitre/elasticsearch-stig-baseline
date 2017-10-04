@@ -1,6 +1,6 @@
 control "V-27036" do
   title "Applications must protect against or limit the effects of the
-organization-defined or referenced types of Denial of Service (DoS) attacks."
+organizational-defined or referenced types of Denial of Service (DoS) attacks."
   desc  "Utilize network safeguards to limit the ability of Elasticsearch to
 launch DOS attacks. Dynamic scripting is disabled by default, limiting the
 ability of an Elasticsearch process to affect resources outside of the
@@ -12,7 +12,7 @@ whitelist of targets (repositories.url.allowed_urls)."
   tag "nist": ["SC-5", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34330r1_rule"
-  tag "stig_id": "SRG-APP-000245"
+  tag "gtitle": "SRG-APP-000245"
   tag "cci": "CCI-001092"
   tag "check": "Utilize network safeguards to limit the ability of
 Elasticsearch to launch DOS attacks. Painless, a sandboxed scripting is the

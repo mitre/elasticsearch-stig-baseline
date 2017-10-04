@@ -28,7 +28,7 @@ communication within Elasticsearch is SSL Mutual Authentication."
   tag "nist": ["SC-23", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34309r1_rule"
-  tag "stig_id": "SRG-APP-000219"
+  tag "gtitle": "SRG-APP-000219"
   tag "cci": "CCI-001184"
   tag "check": "Application must utilize approved cryptography to ensure
 authentication of both client and server during the entire session..
@@ -42,7 +42,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled: true

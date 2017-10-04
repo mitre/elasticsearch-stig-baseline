@@ -1,5 +1,5 @@
 control "V-26751" do
-  title "The application must prevent access to organization-defined
+  title "The application must prevent access to organizational-defined
 security-relevant information except during secure, non-operable system states."
   desc  "Grant access to security and administrative functions of Elasticsearch
 only through Role Based Access Control"
@@ -7,9 +7,9 @@ only through Role Based Access Control"
   tag "nist": ["AC-3 (5)", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-33999r1_rule"
-  tag "stig_id": "SRG-APP-000037"
+  tag "gtitle": "SRG-APP-000037"
   tag "cci": "CCI-000024"
-  tag "check": "Design the domains of administration roles within Elasticsearch
+  tag "check": "Design the domains of administrative roles within Elasticsearch
 by the principle of Separation of Duties.
 
 As the application administrator (shown here as 'elasticsearch'), verify the

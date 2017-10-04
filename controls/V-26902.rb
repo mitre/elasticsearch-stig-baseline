@@ -82,7 +82,7 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AU-12 b", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34182r1_rule"
-  tag "stig_id": "SRG-APP-000090"
+  tag "gtitle": "SRG-APP-000090"
   tag "cci": "CCI-000171"
   tag "check": "Note: The following instructions use the ES_HOME environment
 variable. See supplementary content APPENDIX-F for instructions on configuring
@@ -112,7 +112,7 @@ $ curl -XGET  -H 'Content-Type: application/json' -u <TEST_USER> -p
 Review the role permissions, if any role is listed as superuser but should not
 have that access, this is a finding."
   tag "fix": "Configure elasticsearch audit settings to contain sufficient
-information to establish where an event occured.
+information to establish where an event occurred.
 
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"

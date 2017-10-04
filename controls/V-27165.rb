@@ -31,7 +31,7 @@ backup to a audit log management system."
   tag "nist": ["AU-9", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34464r1_rule"
-  tag "stig_id": "SRG-APP-000123"
+  tag "gtitle": "SRG-APP-000123"
   tag "cci": "CCI-001495"
   tag "check": "The elasticsearch.yml file controls audit function for the
 application. Protection of this file is critical for system security.

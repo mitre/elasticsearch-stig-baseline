@@ -19,18 +19,18 @@ only_if do
 end
 
 control "V-27092" do
-  title "For those instances where the organization requires encrypted traffic
-to be visible to information system monitoring tools, the application
+  title "For those instances where the organizational requires encrypted
+traffic to be visible to information system monitoring tools, the application
 transmitting the encrypted traffic must make provisions to allow that traffic
 to be visible to specific system monitoring tools."
   desc  "Use SSL / TLS communication for all networked access to Elasticsearch
 and connected components such as Kibana and Logstash.  X-Pack Security should
-be configured with organization approved cryptography."
+be configured with organizational approved cryptography."
   impact 0.5
   tag "nist": ["SI-4 (10)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34387r1_rule"
-  tag "stig_id": "SRG-APP-000282"
+  tag "gtitle": "SRG-APP-000282"
   tag "cci": "CCI-001272"
   tag "check": "Application must utilize approved cryptography to protect
 passwords in transmission.
@@ -43,7 +43,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:

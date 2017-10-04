@@ -7,7 +7,7 @@ functionality itself or leverage an existing technology providing this
 capability."
   desc  "Separate the access point and accounts used to administer
 Elasticsearch by configuring different user interfaces and issuing separate
-administration accounts for the use of administrators taking administrative
+administrative accounts for the use of administrators taking administrative
 actions. Prevent Administrative interfaces and accounts should not be used for
 non-administrative actions by using X-Pack's RBAC to enforce separation of
 duties. Audit and alert on the actions of administrator accounts to assure they
@@ -16,12 +16,12 @@ are not being used for non-administrative action."
   tag "nist": ["AC-6 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34077r1_rule"
-  tag "stig_id": "SRG-APP-000063"
+  tag "gtitle": "SRG-APP-000063"
   tag "cci": "CCI-000040"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
 
-For all other accounts, admin and non-admiistrative should be handled
+For all other accounts, admin and non-administrative should be handled
 externally by LDAP, Active Directory, and PKI.
 
 If the external authentication is Active Directory; verify the following
@@ -82,8 +82,8 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

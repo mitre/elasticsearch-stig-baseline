@@ -10,7 +10,7 @@ should use HTTP/S  rather than Elasticsearch transport protocol."
   tag "nist": ["AC-2 (5) (c)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-33980r1_rule"
-  tag "stig_id": "SRG-APP-000030"
+  tag "gtitle": "SRG-APP-000030"
   tag "cci": "CCI-001356"
   tag "check": "Guidance in Appendix B - System accounts cannot be disabled and
 elasticsearch does not enforce password complexity rules.
@@ -75,9 +75,9 @@ $ cat config/elasticsearch.yml | grep -A 6 -B 6 'type: \\?pki'
 If these settings are not correct or missing, this is a finding.
 
 "
-  tag "fix": "Configure elasticsearch realms settings to point to organization
-supported authentication mechanism to allow for monitoring of atypical account
-usage.
+  tag "fix": "Configure elasticsearch realms settings to point to
+organizational supported authentication mechanism to allow for monitoring of
+atypical account usage.
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"

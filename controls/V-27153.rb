@@ -21,13 +21,13 @@ end
 control "V-27153" do
   title "Applications must employ NSA-approved cryptography to protect
 classified information."
-  desc  "Configure X-Pack Security to use an organization approved FIPS 140-2
+  desc  "Configure X-Pack Security to use an organizational approved FIPS 140-2
 java cryptography provider."
   impact 0.5
   tag "nist": ["SC-13 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34452r1_rule"
-  tag "stig_id": "SRG-APP-000198"
+  tag "gtitle": "SRG-APP-000198"
   tag "cci": "CCI-001146"
   tag "check": "Application must utilize approved cryptography to protect
 classified information.
@@ -41,7 +41,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.ssl.cipher_suites:

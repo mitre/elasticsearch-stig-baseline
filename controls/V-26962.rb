@@ -3,18 +3,18 @@ control "V-26962" do
 specifically prohibit or restrict the use of unauthorized functions, ports,
 protocols, and/or services."
   desc  "Configure Elasticsearch to only use ports and protocols acceptable by
-organization policies. Disable the HTTP, Thrift, or Transport protocols if they
-are unused and verify that they are configured to bind only to acceptable
+organizational policies. Disable the HTTP, Thrift, or Transport protocols if
+they are unused and verify that they are configured to bind only to acceptable
 network devices on acceptable ports as documented in the system's security
 plan."
   impact 0.5
   tag "nist": ["CM-7 b", "Rev_4"]
   tag "severity": "medium"
   tag "rid": "SV-34247r1_rule"
-  tag "stig_id": "SRG-APP-000142"
+  tag "gtitle": "SRG-APP-000142"
   tag "cci": "CCI-000382"
   tag "check": "Check Elasticsearch.yml settings and existing IP filtering
-rules to verify that only sepecific IP behind hardware/software 'Managed
+rules to verify that only specific IP behind hardware/software 'Managed
 access control points' are listed.
 
 As the application administrator (usually elasticsearch, check the
@@ -41,7 +41,7 @@ variable. See supplementary content APPENDIX-XXX for
 instructions on configuring ES_HOME.
 
 To change the Managed access control points of the application, as the
-application administrator, change the following setting in elasticsearch.conf:
+application administrator, change the following setting in elasticsearch.yml:
 
 
 $ sudo su - elasticsearch

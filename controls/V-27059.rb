@@ -26,7 +26,7 @@ aggregation, packaging, and transformation in preparation for transmission."
   tag "nist": ["SC-8 (2)", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34354r1_rule"
-  tag "stig_id": "SRG-APP-NA"
+  tag "gtitle": "SRG-APP-NA"
   tag "cci": "CCI-001129"
   tag "check": "Application must utilize approved cryptography to establish
 integrity during preparation of data transmission.
@@ -40,7 +40,7 @@ xpack.ssl.key:                     <server_key>.key
 xpack.ssl.certificate:             <server_certificate>.crt
 xpack.ssl.certificate_authorities: [ <approved_ca>.crt' ]
 
-If these setting are not set or the underlining certificate and keys are not
+If these setting are not set or the underlying certificate and keys are not
 correct, this is a finding.
 
 $cat elasticsearch.yml | grep xpack.security.http.ssl.enabled:
