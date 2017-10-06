@@ -69,7 +69,6 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
       its(['xpack.ssl.certificate']) { should_not be_nil }
       its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
       its(['xpack.security.http.ssl.enabled']) { should eq true }
-      its(['xpack.security.transport.ssl.enabled']) { should eq true }
     end
 
     describe command("openssl rsa -in #{yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']} -check -noout") do

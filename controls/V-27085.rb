@@ -1,3 +1,26 @@
+ELASTICSEARCH_CONF = attribute(
+  'elasticsearch_conf',
+  description: 'Path to elasticsearch.yaml',
+  default: '/etc/elasticsearch/elasticsearch.yml'
+)
+
+ES_INCLUDED_LOGEVENTS = attribute(
+  'es_included_logevents',
+  description: 'List of events to be logged',
+  default: ['access_denied', 'anonymous_access_denied', 'authentication_failed',
+     'connection_denied', 'tampered_request', 'run_as_denied', 'run_as_granted']
+)
+
+ES_EXCLUDED_LOGEVENTS = attribute(
+  'es_included_logevents',
+  description: 'List of events to be logged',
+  default: ['access_granted']
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-27085" do
   title "The application must provide an audit reduction capability."
   desc  "Automate the creation of reports, dashboards, and interactive
@@ -32,4 +55,19 @@ information to establish where an event occurred.
 
 See the official documentation for the instructions on audit configuration:
 https://www.elastic.co/guide/en/x-pack/current/auditing.html"
+
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack.security.audit.enabled']) { should eq true }
+      its(['xpack.security.audit.outputs']) { should include 'logfile' }
+      its(['xpack.security.audit.logfile.events.include']) { should match_array ES_INCLUDED_LOGEVENTS }
+      its(['xpack.security.audit.logfile.events.exclude']) { should match_array ES_EXCLUDED_LOGEVENTS }
+    end
+
+  rescue Exception => msg
+    describe do
+      skip "Exception: #{msg}"
+    end
+  end
+  
 end

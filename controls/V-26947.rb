@@ -16,6 +16,7 @@ ES_EXCLUDED_LOGEVENTS = attribute(
   description: 'List of events to be logged',
   default: ['access_granted']
 )
+
 only_if do
   service('elasticsearch').installed?
 end
@@ -61,15 +62,10 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html"
 
   begin
     describe yaml(ELASTICSEARCH_CONF) do
-      its(['xpack.security.http.filter.enabled']) { should eq true }
-      its(['xpack.security.http.filter.allow']) { should be_in MANAGED_ACCESS_POINTS }
-      its(['xpack.security.http.filter.deny']) { should eq '_all' }
-    end
-
-    cmd = "curl -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_cluster/settings -k -u #{ES_ADMIN}:#{ES_PASS}"
-    describe json(command:cmd) do
-      its('persistent') { should be_empty }
-      its('transient') { should be_empty }
+      its(['xpack.security.audit.enabled']) { should eq true }
+      its(['xpack.security.audit.outputs']) { should include 'logfile' }
+      its(['xpack.security.audit.logfile.events.include']) { should match_array ES_INCLUDED_LOGEVENTS }
+      its(['xpack.security.audit.logfile.events.exclude']) { should match_array ES_EXCLUDED_LOGEVENTS }
     end
 
   rescue Exception => msg

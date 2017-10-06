@@ -2,6 +2,7 @@ control "V-26737" do
   title "The application must enforce dual authorization, based on
 organizational policies and procedures for organizational-defined privileged
 commands."
+
   impact 0.5
   tag "nist": ["AC-3 (2)", "Rev_4"]
   tag "severity": "medium"

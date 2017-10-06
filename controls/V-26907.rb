@@ -1,4 +1,3 @@
-
 ELASTIC_IP= attribute(
   'elastic_ip',
   description: 'IP address of the elasticsearch instance',
@@ -13,23 +12,6 @@ ELASTICSEARCH_CONF= attribute(
   'elasticsearch_conf',
   description: 'Path to elasticsearch.yaml',
   default: '/etc/elasticsearch/elasticsearch.yml'
-)
-
-MANAGED_ACCESS_POINTS= attribute(
-  'managed_access_points',
-  description: 'List of managed access points',
-  default: ['10.0.2.15']
-)
-
-ES_ADMIN = attribute(
-  'es_admin',
-  description: 'Elasticsearch admin',
-  default: 'elastic'
-)
-ES_PASS = attribute(
-  'es_pass',
-  description: 'Elasticsearch admin password',
-  default: 'changeme'
 )
 
 only_if do
@@ -83,15 +65,38 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
 
   begin
     describe yaml(ELASTICSEARCH_CONF) do
-      its(['xpack.security.http.filter.enabled']) { should eq true }
-      its(['xpack.security.http.filter.allow']) { should be_in MANAGED_ACCESS_POINTS }
-      its(['xpack.security.http.filter.deny']) { should eq '_all' }
+      its(['xpack.ssl.key']) { should_not be_nil }
+      its(['xpack.ssl.certificate']) { should_not be_nil }
+      its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
+      its(['xpack.security.http.ssl.enabled']) { should eq true }
+      its(['xpack.security.transport.ssl.enabled']) { should eq true }
     end
 
-    cmd = "curl -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_cluster/settings -k -u #{ES_ADMIN}:#{ES_PASS}"
-    describe json(command:cmd) do
-      its('persistent') { should be_empty }
-      its('transient') { should be_empty }
+    describe command("openssl rsa -in #{yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']} -check -noout") do
+      its('stdout'){ should match /RSA key ok/ }
+    end
+
+    describe x509_certificate(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate']) do
+      it { should be_certificate }
+      it { should be_valid }
+    end
+
+    if yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].is_a?(Array)
+      yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities'].each do |cert|
+        describe x509_certificate(cert) do
+          it { should be_certificate }
+          it { should be_valid }
+        end
+      end
+    else
+      describe x509_certificate(yaml(ELASTICSEARCH_CONF)['xpack.ssl.certificate_authorities']) do
+        it { should be_certificate }
+        it { should be_valid }
+      end
+    end
+
+    describe command("curl -H 'Content-Type: application/json' http://#{ELASTIC_IP}:#{ELASTIC_PORT}/") do
+      its('exit_status') { should_not cmp 0 }
     end
 
   rescue Exception => msg

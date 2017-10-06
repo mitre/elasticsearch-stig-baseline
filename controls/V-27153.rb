@@ -14,9 +14,23 @@ ELASTICSEARCH_CONF= attribute(
   default: '/etc/elasticsearch/elasticsearch.yml'
 )
 
+APPROVED_CIPHER_SUITES= attribute(
+  'elasticsearch_conf',
+  description: 'List of NSA-approved or FIPS validated cipher suites',
+  default: [
+            'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256',
+            'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256',
+            'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA',
+            'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA',
+            'TLS_RSA_WITH_AES_128_CBC_SHA256',
+            'TLS_RSA_WITH_AES_128_CBC_SHA'
+            ]
+)
+
 only_if do
   service('elasticsearch').installed?
 end
+
 
 control "V-27153" do
   title "Applications must employ NSA-approved cryptography to protect
@@ -67,8 +81,7 @@ configuration: https://www.elastic.co/guide/en/x-pack/current/ssl-tls.html"
       its(['xpack.ssl.key']) { should_not be_nil }
       its(['xpack.ssl.certificate']) { should_not be_nil }
       its(['xpack.ssl.certificate_authorities']) { should_not be_nil }
-      its(['xpack.security.http.ssl.enabled']) { should eq true }
-      its(['xpack.security.transport.ssl.enabled']) { should eq true }
+      its(['xpack.ssl.cipher_suites']) { should match_array APPROVED_CIPHER_SUITES }
     end
 
     describe command("openssl rsa -in #{yaml(ELASTICSEARCH_CONF)['xpack.ssl.key']} -check -noout") do
