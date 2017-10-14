@@ -11,8 +11,8 @@ ELASTIC_PORT= attribute(
 )
 
 ES_HOME= attribute(
-  'elasticsearch_conf',
-  description: 'Path to elasticsearch.yaml',
+  'es_home',
+  description: 'Path elasticsearch home folder',
   default: '/etc/elasticsearch'
 )
 
@@ -26,12 +26,6 @@ ES_PASS = attribute(
   'es_pass',
   description: 'Elasticsearch admin password',
   default: 'changeme'
-)
-
-ES_SUPERUSERS = attribute(
-  'es_superusers',
-  description: 'List of superusers',
-  default: ['elastic']
 )
 
 ES_OWNER = attribute(
@@ -48,7 +42,7 @@ ES_GROUP = attribute(
 
 ELASTICSEARCH_CONF = attribute(
   'elasticsearch_conf',
-  description: 'Path to elasticsearch.yaml',
+  description: 'Path to elasticsearch.yml',
   default: '/etc/elasticsearch/elasticsearch.yml'
 )
 
@@ -124,23 +118,33 @@ https://www.elastic.co/guide/en/x-pack/current/auditing.html"
       its(['xpack.security.audit.logfile.events.include']) { should match_array ES_INCLUDED_LOGEVENTS }
       its(['xpack.security.audit.logfile.events.exclude']) { should match_array ES_EXCLUDED_LOGEVENTS }
     end
+    
+    describe file(ELASTICSEARCH_CONF) do
+      its('owner') { should eq ES_OWNER }
+      its('group') { should eq ES_GROUP }
+    end
 
     describe file(ES_HOME) do
       its('owner') { should eq ES_OWNER }
       its('group') { should eq ES_GROUP }
     end
 
-    cmd = "curl -XGET  -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_xpack/security/user -k -u #{ES_ADMIN}:#{ES_PASS}"
-    userlist = json(command:cmd).params
 
-    userlist.keys.each do |user|
-      if userlist[user]['roles'].include?('superuser')
-        describe userlist[user]['username'] do
-          it { should be_in ES_SUPERUSERS}
-        end
+    cmd = "curl -XGET  -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_xpack/security/role -k -u #{ES_ADMIN}:#{ES_PASS}"
+    role_list = json(command:cmd).params
+
+    role_list.keys.each do |role|
+      describe role_list[role] do
+        its(['run_as']) { should_not include("*") }
+      end
+      describe role_list[role] do
+        its(['indices']) { should_not include({"names"=>["*"], "privileges"=>["all"]}) }
+      end
+      describe role_list[role] do
+        its(['cluster']) { should_not include("all") }
       end
     end
-
+    
   rescue Exception => msg
     describe "Exception: #{msg}" do
       it { should be_nil}

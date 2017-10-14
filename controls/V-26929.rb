@@ -1,9 +1,12 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26929" do
   title "The application must protect audit data records and integrity by using
 cryptographic mechanisms."
-  desc  "Elasticsearch currently does not provide protection and integrity
-checks on audit logs. A secondary process would be needed to periodically roll
-and sign audit logs."
+  desc  "Applicable - does not meet - not configurable, and does not meet the
+requirement."
   impact 0.5
   tag "nist": ["AU-9 (3)", "Rev_4"]
   tag "severity": "medium"
@@ -14,4 +17,8 @@ and sign audit logs."
 assistance from an external application, policy, or service."
   tag "fix": "Perform computation and application of a cryptographic-signed
 hash using asymmetric cryptography on audit records. "
+
+  only_if do
+    false
+  end
 end

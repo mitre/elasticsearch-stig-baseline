@@ -1,3 +1,7 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26892" do
   title "The application must provide a real-time alert when
 organizational-defined audit failure events occur."

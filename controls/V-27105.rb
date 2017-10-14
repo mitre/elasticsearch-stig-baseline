@@ -2,17 +2,17 @@ only_if do
   service('elasticsearch').installed?
 end
 
-control "V-27166" do
-  title "The application must have the capability to produce audit records on
-hardware-enforced, write-once media."
+control "V-27105" do
+  title "The application must support taking organizational-defined list of
+least-disruptive actions to terminate suspicious events."
   desc  "Applicable - does not meet - not configurable, and does not meet the
 requirement."
   impact 0.5
-  tag "nist": ["AU-9 (1)", "Rev_4"]
+  tag "nist": ["SI-4 (7)", "Rev_4"]
   tag "severity": "medium"
-  tag "rid": "SV-34465r1_rule"
-  tag "gtitle": "SRG-APP-000124"
-  tag "cci": "CCI-000165"
+  tag "rid": "SV-34400r1_rule"
+  tag "gtitle": "SRG-APP-000287"
+  tag "cci": "CCI-001670"
   tag "check": "Elasticsearch cannot support this requirement without
 assistance from an external application, policy, or service."
   tag "fix": "Do not expose Elasticsearch directly to users, instead have an

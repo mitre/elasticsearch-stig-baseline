@@ -1,8 +1,13 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26737" do
   title "The application must enforce dual authorization, based on
 organizational policies and procedures for organizational-defined privileged
 commands."
-
+  desc  "Applicable - does not meet - not configurable, and does not meet the
+requirement."
   impact 0.5
   tag "nist": ["AC-3 (2)", "Rev_4"]
   tag "severity": "medium"
@@ -15,4 +20,8 @@ assistance from an external application, policy, or service."
 
 See the official documentation for the instructions on custom realms:
 https://www.elastic.co/guide/en/x-pack/current/custom-realms.html#implementing-custom-realm"
+
+  only_if do
+    false
+  end
 end

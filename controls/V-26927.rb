@@ -1,6 +1,6 @@
 ELASTICSEARCH_CONF= attribute(
   'elasticsearch_conf',
-  description: 'Path to elasticsearch.yaml',
+  description: 'Path to elasticsearch.yml',
   default: '/etc/elasticsearch/elasticsearch.yml'
 )
 

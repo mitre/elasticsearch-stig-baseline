@@ -1,9 +1,12 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26917" do
   title "The application must enforce configurable traffic volume thresholds
 representing auditing capacity for network traffic."
-  desc  "Monitor the health and resources (such as remaining storage) of
-systems running Elasticsearch software and notify operators when safety
-thresholds have been exceeded. "
+  desc  "Applicable - does not meet - not configurable, and does not meet the
+requirement."
   impact 0.5
   tag "nist": ["AU-5 (3)", "Rev_4"]
   tag "severity": "medium"
@@ -13,5 +16,11 @@ thresholds have been exceeded. "
   tag "check": "Elasticsearch cannot support this requirement without
 assistance from an external application, policy, or service."
   tag "fix": "Integrate network traffic control solutions outside of
-elasticsearch."
+elasticsearch.  Monitor the health and resources (such as remaining storage) of
+systems running Elasticsearch software and notify operators when safety
+thresholds have been exceeded. "
+
+  only_if do
+    false
+  end
 end

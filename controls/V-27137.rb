@@ -5,14 +5,18 @@ end
 control "V-27137" do
   title "Applications utilized for integrity verification must detect
 unauthorized changes to software and information."
+  desc  "Applicable - does not meet - not configurable, and does not meet the
+requirement."
   impact 0.5
   tag "nist": ["SI-7", "Rev_3"]
   tag "severity": "medium"
   tag "rid": "SV-34436r1_rule"
   tag "gtitle": "SRG-APP-000262"
   tag "cci": "CCI-001297"
-  tag "check": "The AIDE package must be installed if it is to be available for
-integrity checking.
+  tag "check": "Elasticsearch cannot support this requirement without
+assistance from an external application, policy, or service."
+  tag "fix": "The AIDE package can be installed to be available for integrity
+checking.
 
 Run the following command to determine if the aide package is installed:
 

@@ -1,3 +1,7 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-27025" do
   title "Applications must isolate security functions from non-security
 functions by means of an isolation boundary (implemented via partitions and
@@ -18,4 +22,8 @@ machines or other container technology to further encapsulate the privileges
 and resources allocated to the system."
   tag "fix": "Encapsulate elasticsearch to virtual resources as organizational
 required."
+
+  only_if do
+    false
+  end
 end

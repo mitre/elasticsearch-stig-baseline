@@ -1,3 +1,13 @@
+ELASTICSEARCH_CONF= attribute(
+  'elasticsearch_conf',
+  description: 'Path to elasticsearch.yml',
+  default: '/etc/elasticsearch/elasticsearch.yml'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26916" do
   title "The application must support organizational requirements to prohibit
 password reuse for the organizational-defined number of generations."
@@ -78,4 +88,44 @@ organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"
+
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack','security','authc','realms']) { should_not be_nil }
+    end
+
+    yaml(ELASTICSEARCH_CONF)['xpack','security','authc','realms'].each do |realm|
+      if realm.last['type'].eql?('active_directory')
+        describe realm.last do
+          its (['order']) { should_not be_nil }
+          its (['domain_name']) { should_not be_nil }
+          its (['url']) { should_not be_nil }
+          its (['unmapped_groups_as_roles']) { should_not be_nil }
+        end
+      end
+      if realm.last['type'].eql?('ldap')
+        describe realm.last do
+          its (['order']) { should_not be_nil }
+          its (['url']) { should_not be_nil }
+          its (['bind_dn']) { should_not be_nil }
+          its (['bind_password']) { should_not be_nil }
+          its (['user_search','base_dn']) { should_not be_nil }
+          its (['user_search','attribute']) { should_not be_nil }
+          its (['group_search','base_dn']) { should_not be_nil }
+          its (['files','role_mapping']) { should_not be_nil }
+        end
+      end
+      if realm.last['type'].eql?('pki')
+        describe realm.last do
+          its (['order']) { should_not be_nil }
+          its (['username_pattern']) { should_not be_nil }
+        end
+      end
+    end unless yaml(ELASTICSEARCH_CONF)['xpack','security','authc','realms'].nil?
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end
