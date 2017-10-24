@@ -1,3 +1,13 @@
+ELASTICSEARCH_CONF= attribute(
+  'elasticsearch_conf',
+  description: 'Path to elasticsearch.yml',
+  default: '/etc/elasticsearch/elasticsearch.yml'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26973" do
   title "The application must use multifactor authentication for network access
 to privileged accounts."
@@ -34,4 +44,32 @@ organizational supported authentication mechanism
 
 See the official documentation for the instructions on realm configuration:
 https://www.elastic.co/guide/en/x-pack/current/_how_authentication_works.html"
+
+  begin
+    describe yaml(ELASTICSEARCH_CONF) do
+      its(['xpack','security','authc','realms']) { should_not be_nil }
+    end
+
+    describe.one do
+      yaml(ELASTICSEARCH_CONF)['xpack','security','authc','realms'].each do |realm|
+        describe realm.last do
+          its (['type']) { should cmp 'pki' }
+        end
+      end unless yaml(ELASTICSEARCH_CONF)['xpack','security','authc','realms'].nil?
+    end
+
+    yaml(ELASTICSEARCH_CONF)['xpack','security','authc','realms'].each do |realm|
+      if realm.last['type'].eql?('pki')
+        describe realm.last do
+          its (['order']) { should_not be_nil }
+          its (['username_pattern']) { should_not be_nil }
+        end
+      end
+    end unless yaml(ELASTICSEARCH_CONF)['xpack','security','authc','realms'].nil?
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

@@ -1,3 +1,7 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26830" do
   title "Applications must be able to function within separate processing
 domains (virtualized systems), when specified, so as to enable finer-grained

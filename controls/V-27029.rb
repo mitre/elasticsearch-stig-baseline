@@ -1,3 +1,7 @@
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-27029" do
   title "Applications must meet organizational requirements to implement
 security functions as a layered structure minimizing interactions between
@@ -17,4 +21,15 @@ machines or other container technology to further encapsulate the privileges
 and resources allocated to the system."
   tag "fix": "Encapsulate elasticsearch to virtual resources as organizational
 required."
+
+  begin
+    describe virtualization do
+      its('role') { should eq 'guest' }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

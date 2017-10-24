@@ -23,7 +23,14 @@ and resources allocated to the system."
   tag "fix": "Encapsulate elasticsearch to virtual resources as organizational
 required."
 
-  only_if do
-    false
+  begin
+    describe virtualization do
+      its('role') { should eq 'guest' }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
   end
 end
