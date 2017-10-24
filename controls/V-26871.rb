@@ -1,3 +1,19 @@
+RSYSLOG_CONF= attribute(
+  'rsyslog_conf',
+  description: 'Path to rsyslog.conf',
+  default: '/etc/rsyslog.conf'
+)
+
+LOG_AGGREGATION_SYSTEM = attribute(
+  'rsyslog_conf',
+  description: 'URI to the log aggregation system',
+  default: 'logagg.site.mil'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26871" do
   title "To support DoD requirements to centrally manage the content of audit
 records, applications must provide the ability to write specified audit record
@@ -27,4 +43,14 @@ line to send specified 'rsyslog' output to a log aggregation system:
 *.* @@&ltlog aggregation system name&gt
 
 "
+  begin
+    describe file(RSYSLOG_CONF) do
+      its('content') { should match /@@+#{LOG_AGGREGATION_SYSTEM}|@+#{LOG_AGGREGATION_SYSTEM}/}
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

@@ -1,3 +1,19 @@
+RSYSLOG_CONF= attribute(
+  'rsyslog_conf',
+  description: 'Path to rsyslog.conf',
+  default: '/etc/rsyslog.conf'
+)
+
+LOG_AGGREGATION_SYSTEM = attribute(
+  'rsyslog_conf',
+  description: 'URI to the log aggregation system',
+  default: 'logagg.site.mil'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26686" do
   title "The application must monitor for unauthorized remote connections to
 the information system on an organizational-defined frequency."
@@ -39,4 +55,14 @@ the following command
 
 $vi /etc/rsyslog.conf' | grep 'InputFileName
 /var/log/elasticsearch/<clustername>_access.log'"
+  begin
+    describe file(RSYSLOG_CONF) do
+      its('content') { should match /@@+#{LOG_AGGREGATION_SYSTEM}|@+#{LOG_AGGREGATION_SYSTEM}/}
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

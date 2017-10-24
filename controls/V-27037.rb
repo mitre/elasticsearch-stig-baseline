@@ -1,3 +1,31 @@
+ELASTIC_IP= attribute(
+  'elastic_ip',
+  description: 'IP address of the elasticsearch instance',
+  default: '0.0.0.0'
+)
+
+ELASTIC_PORT= attribute(
+  'elastic_port',
+  description: 'Port address of the elasticsearch instance',
+  default: '9200'
+)
+
+ES_ADMIN = attribute(
+  'es_admin',
+  description: 'Elasticsearch admin',
+  default: 'elastic'
+)
+
+ES_PASS = attribute(
+  'es_pass',
+  description: 'Elasticsearch admin password',
+  default: 'changeme'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-27037" do
   title "Applications must preserve any organization-defined system state
 information in the event of a system failure."
@@ -30,4 +58,23 @@ rack separated machines to ensure application built to handle failures.
 
 See the official documentation for RPM installation at:
 https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html"
+
+  begin
+    cmd = "curl -XGET  -H 'Content-Type: application/json' https://#{ELASTIC_IP}:#{ELASTIC_PORT}/_cluster/stats -k -u #{ES_ADMIN}:#{ES_PASS}"
+    cluster_stats = json(command:cmd).params
+
+    describe cluster_stats['nodes']['count'] do
+      its(['total']) { should cmp >= 3 }
+      its(['data']) { should cmp >= 2 }
+    end
+
+    describe cluster_stats['indices']['shards']['index']['replication'] do
+      its(['min']) { should cmp >= 1 }
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end

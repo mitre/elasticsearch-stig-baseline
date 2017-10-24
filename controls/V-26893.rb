@@ -1,3 +1,19 @@
+RSYSLOG_CONF= attribute(
+  'rsyslog_conf',
+  description: 'Path to rsyslog.conf',
+  default: '/etc/rsyslog.conf'
+)
+
+LOG_AGGREGATION_SYSTEM = attribute(
+  'rsyslog_conf',
+  description: 'URI to the log aggregation system',
+  default: 'logagg.site.mil'
+)
+
+only_if do
+  service('elasticsearch').installed?
+end
+
 control "V-26893" do
   title "Applications must maintain reviewer/releaser identity and credentials
 within the established chain of custody for all information reviewed or
@@ -30,4 +46,14 @@ line to send all 'rsyslog' output to a log aggregation system:
 *.* @@&ltlog aggregation system name&gt
 
 "
+  begin
+    describe file(RSYSLOG_CONF) do
+      its('content') { should match /@@+#{LOG_AGGREGATION_SYSTEM}|@+#{LOG_AGGREGATION_SYSTEM}/}
+    end
+
+  rescue Exception => msg
+    describe "Exception: #{msg}" do
+      it { should be_nil}
+    end
+  end
 end
