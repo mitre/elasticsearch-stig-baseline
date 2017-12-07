@@ -45,12 +45,12 @@ We use a yml attribute file to steer the configuration, the following options ar
 
   * description: 'List of events to be logged',  
   `es_included_logevents:
-    ['access_denied',
-     'anonymous_access_denied',
-     'authentication_failed',
-     'connection_denied',
-     'tampered_request',
-     'run_as_denied',
+    ['access_denied',  
+     'anonymous_access_denied',  
+     'authentication_failed',  
+     'connection_denied',  
+     'tampered_request',  
+     'run_as_denied',  
      'run_as_granted']`
 
   * description: 'List of events to be logged',  
