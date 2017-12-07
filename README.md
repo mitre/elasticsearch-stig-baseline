@@ -80,7 +80,7 @@ We use a yml attribute file to steer the configuration, the following options ar
   * description: 'URI to the log aggregation system',  
   `log_aggregation_system: 'logagg.site.mil'`  
 
-  * description: 'List of NSA-approved or FIPS validated cipher suites',  
+  * description: 'List of NSA-approved or FIPS validated cipher suites',    
   `approved_cipher_suites: ['TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256',
   'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA','TLS_RSA_WITH_AES_128_CBC_SHA256','TLS_RSA_WITH_AES_128_CBC_SHA']`
 
