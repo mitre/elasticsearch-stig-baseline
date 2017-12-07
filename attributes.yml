@@ -14,7 +14,7 @@
   # description: 'Port address of the elasticsearch instance',
   elastic_port: '9200'
 
-  # description: 'Path to elasticsearch.yml'
+  # description: 'Path to elasticsearch home directory'
   es_home: '/etc/elasticsearch'
 
   # description: 'Path to elasticsearch.yaml',
@@ -45,9 +45,6 @@
   # description: 'Elasticsearch group',
   es_group: 'elasticsearch'
 
-  # description: 'Path to elasticsearch.yaml',
-  elasticsearch_conf: '/etc/elasticsearch'
-  
   # description: 'Path to rsyslog.conf'
   rsyslog_conf: '/etc/rsyslog.conf'
 

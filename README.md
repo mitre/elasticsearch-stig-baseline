@@ -30,7 +30,7 @@ We use a yml attribute file to steer the configuration, the following options ar
 - description: 'Port address of the elasticsearch instance',<br>
   `elastic_port: '9200'`
 
-- description: 'Path to elasticsearch.yml'<br>
+- description: 'Path to elasticsearch home directory'<br>
   `es_home: '/etc/elasticsearch'`
 
 - description: 'Path to elasticsearch.yaml',<br>
@@ -44,9 +44,6 @@ We use a yml attribute file to steer the configuration, the following options ar
 
 - description: 'Elasticsearch admin password',<br>
   `es_pass: 'changeme'`
-
-- description: 'List of events to be logged',<br>
-  `es_included_logevents: ['access_denied', 'anonymous_access_denied', 'authentication_failed', 'connection_denied', 'tampered_request', 'run_as_denied', 'run_as_granted']`
 
 - description: 'List of superusers',<br>
   `es_superusers: ['elastic']`
@@ -62,9 +59,6 @@ We use a yml attribute file to steer the configuration, the following options ar
 
 - description: 'Elasticsearch group',<br>
   `es_group: 'elasticsearch'`
-
-- description: 'Path to elasticsearch.yaml',<br>
-  `elasticsearch_conf: '/etc/elasticsearch'`
 
 - description: 'Path to rsyslog.conf',<br>
   `rsyslog_conf: '/etc/rsyslog.conf'`
