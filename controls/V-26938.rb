@@ -11,7 +11,7 @@ ELASTIC_PORT= attribute(
 )
 
 ES_HOME= attribute(
-  'elasticsearch_conf',
+  'es_home',
   description: 'Path to elasticsearch.yml',
   default: '/etc/elasticsearch'
 )
