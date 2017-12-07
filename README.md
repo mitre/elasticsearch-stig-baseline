@@ -13,8 +13,7 @@ InSpec is an open-source run-time framework and rule language used to specify co
 
 ### Tested Platforms
 
-This profile is being developed and tested along side a `hardening` recipe. The 
-[elasticsearch-inspec-hardening] (https://github.com/elastic/elasticsearch-inspec-hardening) will help you configure and deploy your ElasticSearch instance to meet the requirements of the security baseline.
+This profile is being developed and tested along side a `hardening` recipe. The [elasticsearch-inspec-hardening](https://github.com/elastic/elasticsearch-inspec-hardening) will help you configure and deploy your ElasticSearch instance to meet the requirements of the security baseline.
 
 - CentOS 7
 - RHEL 7
