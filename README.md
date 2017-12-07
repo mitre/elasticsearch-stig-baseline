@@ -91,9 +91,6 @@ inspec exec elasticsearch-inspec -t ssh://user@hostname -i /path/to/key --sudo
 
 # run profile on remote host via SSH with sudo and define attribute value
 inspec exec elasticsearch-inspec --attrs attributes.yml
-
-# run profile direct from inspec supermarket
-inspec supermarket exec elasticsearch-inspec -t ssh://user@hostname --key-files private_key --sudo
 ```
 
 ### Run individual controls
