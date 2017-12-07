@@ -2,7 +2,7 @@
 
 ## Description
 
-This [InSpec](https://github.com/chef/inspec) compliance profile implement the [ElasticSearch Security Technical Implementation Guide (STIG) - (Draft)](https://github.com/elastic/elasticsearch-inspec) in an automated way to provide security best-practice tests around ElasticSearch server and system settings in a production environment.
+This [InSpec](https://github.com/chef/inspec) compliance profile implement the [ElasticSearch Security Technical Implementation Guide (STIG) - (Draft)](https://github.com/elastic/elasticsearch-inspec) in an automated way to provide security best-practice tests around ElasticSearch with X-pack server and system settings in a production environment.
 
 InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.
 
@@ -10,10 +10,11 @@ InSpec is an open-source run-time framework and rule language used to specify co
 
 - At least [InSpec](http://inspec.io/) version 1.43.5 or higher
 - ElasticSearch v. 5.x or higher
+- X-pack v. 5.x or higher
 
 ### Tested Platforms
 
-This profile is being developed and tested along side a `hardening` recipe. The [elasticsearch-inspec-hardening](https://github.com/elastic/elasticsearch-inspec-hardening) will help you configure and deploy your ElasticSearch instance to meet the requirements of the security baseline.
+This profile is being developed and tested along side a `hardening` recipe. The [elasticsearch-inspec-hardening](https://github.com/elastic/elasticsearch-inspec-hardening) will help you configure and deploy your ElasticSearch with X- pack instance to meet the requirements of the security baseline.
 
 - CentOS 7
 - RHEL 7
