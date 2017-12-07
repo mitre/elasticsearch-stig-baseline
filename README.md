@@ -23,36 +23,42 @@ It should work on other platforms, however, we have not yet formally tested it
 
 We use a yml attribute file to steer the configuration, the following options are available:
 
-# description: 'IP address of the elasticsearch instance',
-elastic_ip: '0.0.0.0'
+  * description: 'IP address of the elasticsearch instance',
+    `elastic_ip: '0.0.0.0'`
 
-# description: 'Port address of the elasticsearch instance',
-elastic_port: '9200'
+  * description: 'Port address of the elasticsearch instance',
+    `elastic_port: '9200'`
 
-# description: 'Path to elasticsearch.yaml',
-elasticsearch_conf: '/etc/elasticsearch/elasticsearch.yml'
+  * description: 'Path to elasticsearch.yaml',
+  `elasticsearch_conf: '/etc/elasticsearch/elasticsearch.yml'`
 
-# description: 'List of managed access points',
-managed_access_points: ['10.0.2.15']
+  * description: 'List of managed access points',
+  `managed_access_points: ['10.0.2.15']`
 
-# description: 'Elasticsearch admin',
-es_admin: 'elastic'
+  * description: 'Elasticsearch admin',
+  `es_admin: 'elastic'`
 
-# description: 'Elasticsearch admin password',
-es_pass: 'changeme'
+  * description: 'Elasticsearch admin password',
+  `es_pass: 'changeme'`
 
-# description: 'List of events to be logged',
-es_included_logevents: ['access_denied', 'anonymous_access_denied', 'authentication_failed',
-   'connection_denied', 'tampered_request', 'run_as_denied', 'run_as_granted']
+  * description: 'List of events to be logged',
+  `es_included_logevents:
+    ['access_denied',
+     'anonymous_access_denied',
+     'authentication_failed',
+     'connection_denied',
+     'tampered_request',
+     'run_as_denied',
+     'run_as_granted']`
 
-# description: 'List of events to be logged',
-es_included_logevents: ['access_granted']
+  * description: 'List of events to be logged',
+  `es_included_logevents: ['access_granted']`
 
-# description: 'List of superusers',
-es_superusers: ['elastic']
+  * description: 'List of superusers',
+  `es_superusers: ['elastic']`
 
-# description: 'Elasticsearch owner',
-es_owner: 'elasticsearch'
+  * description: 'Elasticsearch owner',
+  `es_owner: 'elasticsearch'`
 
   * description: 'Elasticsearch group',
    `es_group: 'elasticsearch'`
@@ -62,8 +68,6 @@ es_owner: 'elasticsearch'
 
   * `trusted_user: vagrant`
     define trusted user to control Docker daemon.
-
-
 
 ## Usage
 
