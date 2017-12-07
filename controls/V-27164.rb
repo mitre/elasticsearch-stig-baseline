@@ -54,7 +54,7 @@ ES_INCLUDED_LOGEVENTS = attribute(
 )
 
 ES_EXCLUDED_LOGEVENTS = attribute(
-  'es_included_logevents',
+  'es_excluded_logevents',
   description: 'List of events to be logged',
   default: ['access_granted']
 )

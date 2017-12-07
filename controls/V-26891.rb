@@ -5,7 +5,7 @@ RSYSLOG_CONF= attribute(
 )
 
 LOG_AGGREGATION_SYSTEM = attribute(
-  'rsyslog_conf',
+  'log_aggregation_system',
   description: 'URI to the log aggregation system',
   default: 'logagg.site.mil'
 )
