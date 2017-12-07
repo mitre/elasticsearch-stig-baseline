@@ -29,10 +29,10 @@ We use a yml attribute file to steer the configuration, the following options ar
   `elastic_ip: '0.0.0.0'`
 
   * description: 'Port address of the elasticsearch instance',  
-  `elastic_port: '9200'`
+  `elastic_port: '9200'`  
 
-  * description: 'Path to elasticsearch.yml' .
-  `es_home: '/etc/elasticsearch'`
+  * description: 'Path to elasticsearch.yml'  
+  `es_home: '/etc/elasticsearch'`  
 
   * description: 'Path to elasticsearch.yaml',  
   `elasticsearch_conf: '/etc/elasticsearch/elasticsearch.yml'`
