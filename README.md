@@ -65,13 +65,13 @@ We use a yml attribute file to steer the configuration, the following options ar
   * description: 'Path to elasticsearch.yaml',  
   `elasticsearch_conf: '/etc/elasticsearch'`
   
-  * description: 'Path to rsyslog.conf' . 
+  * description: 'Path to rsyslog.conf',  
   `rsyslog_conf: '/etc/rsyslog.conf'`
 
-  * description: 'URI to the log aggregation system'  
+  * description: 'URI to the log aggregation system',  
   `log_aggregation_system: 'logagg.site.mil'`
 
-  * description: 'List of NSA-approved or FIPS validated cipher suites' . 
+  * description: 'List of NSA-approved or FIPS validated cipher suites',  
   `approved_cipher_suites: 
             [
             'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256',
