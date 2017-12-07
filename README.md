@@ -23,25 +23,25 @@ It should work on other platforms, however, we have not yet formally tested it
 
 We use a yml attribute file to steer the configuration, the following options are available:
 
-  * description: 'IP address of the elasticsearch instance',
+  * description: 'IP address of the elasticsearch instance',  
     `elastic_ip: '0.0.0.0'`
 
-  * description: 'Port address of the elasticsearch instance',
+  * description: 'Port address of the elasticsearch instance',  
     `elastic_port: '9200'`
 
-  * description: 'Path to elasticsearch.yaml',
+  * description: 'Path to elasticsearch.yaml',  
   `elasticsearch_conf: '/etc/elasticsearch/elasticsearch.yml'`
 
-  * description: 'List of managed access points',
+  * description: 'List of managed access points',  
   `managed_access_points: ['10.0.2.15']`
 
-  * description: 'Elasticsearch admin',
+  * description: 'Elasticsearch admin',  
   `es_admin: 'elastic'`
 
-  * description: 'Elasticsearch admin password',
+  * description: 'Elasticsearch admin password',  
   `es_pass: 'changeme'`
 
-  * description: 'List of events to be logged',
+  * description: 'List of events to be logged',  
   `es_included_logevents:
     ['access_denied',
      'anonymous_access_denied',
@@ -51,22 +51,22 @@ We use a yml attribute file to steer the configuration, the following options ar
      'run_as_denied',
      'run_as_granted']`
 
-  * description: 'List of events to be logged',
+  * description: 'List of events to be logged',  
   `es_included_logevents: ['access_granted']`
 
-  * description: 'List of superusers',
+  * description: 'List of superusers',  
   `es_superusers: ['elastic']`
 
-  * description: 'Elasticsearch owner',
+  * description: 'Elasticsearch owner',  
   `es_owner: 'elasticsearch'`
 
-  * description: 'Elasticsearch group',
+  * description: 'Elasticsearch group',  
    `es_group: 'elasticsearch'`
 
-  * description: 'Path to elasticsearch.yaml',
+  * description: 'Path to elasticsearch.yaml',  
     `elasticsearch_conf: '/etc/elasticsearch'`
 
-  * `trusted_user: vagrant`
+  * `trusted_user: vagrant`  
     define trusted user to control Docker daemon.
 
 ## Usage
@@ -75,23 +75,23 @@ InSpec makes it easy to run your tests wherever you need. More options listed he
 
 ```
 # run profile locally
-$ git clone https://github.com/dev-sec/cis-docker-benchmark
-$ inspec exec cis-docker-benchmark
+$ git clone https://github.com/elastic/elasticsearch-inspec
+$ inspec exec elasticsearch-inspec
 
 # run profile locally and directly from Github
-$ inspec exec https://github.com/dev-sec/cis-docker-benchmark
+$ inspec exec https://github.com/elastic/elasticsearch-inspec
 
 # run profile on remote host via SSH
-inspec exec cis-docker-benchmark -t ssh://user@hostname -i /path/to/key
+inspec exec elasticsearch-inspec -t ssh://user@hostname -i /path/to/key
 
 # run profile on remote host via SSH with sudo
-inspec exec cis-docker-benchmark -t ssh://user@hostname -i /path/to/key --sudo
+inspec exec elasticsearch-inspec -t ssh://user@hostname -i /path/to/key --sudo
 
 # run profile on remote host via SSH with sudo and define attribute value
-inspec exec cis-docker-benchmark --attrs sample_attributes.yml
+inspec exec elasticsearch-inspec --attrs attributes.yml
 
 # run profile direct from inspec supermarket
-inspec supermarket exec dev-sec/cis-docker-benchmark -t ssh://user@hostname --key-files private_key --sudo
+inspec supermarket exec elasticsearch-inspec -t ssh://user@hostname --key-files private_key --sudo
 ```
 
 ### Run individual controls
@@ -99,20 +99,20 @@ inspec supermarket exec dev-sec/cis-docker-benchmark -t ssh://user@hostname --ke
 In order to verify individual controls, just provide the control ids to InSpec:
 
 ```
-inspec exec cis-docker-benchmark --controls 'cis-docker-benchmark-1.4 cis-docker-benchmark-1.5'
+inspec exec elasticsearch-inspec --controls 'V-26699 V-27130'
 ```
 
 ## Contributors + Kudos
 
-* Patrick Muench [atomic111](https://github.com/atomic111)
-* Dominik Richter [arlimus](https://github.com/arlimus)
-* Christoph Hartmann [chris-rock](https://github.com/chris-rock)
-
+* Rony Xavier [rx294](https://github.com/rx294)
+* Aaron Lippold [aaronlippold](https://github.com/aaronlippold)
+* Matt Issett [matt-isett](https://github.com/matt-isett)
 
 ## License and Author
 
-* Author:: Patrick Muench <patrick.muench1111@gmail.com>
-* Author:: Christoph Hartmann <chris@lollyrock.com>
+* Author:: Rony Xaiver <rx294@gmail.com>
+* Author:: Aaron Lippold <lippold@gmail.com>
+* Author:: Matt Issett <matt.isett@elastic.co>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -125,7 +125,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-[1]: http://travis-ci.org/dev-sec/cis-docker-benchmark
-[2]: https://gitter.im/dev-sec/general
-[3]: https://downloads.cisecurity.org/
