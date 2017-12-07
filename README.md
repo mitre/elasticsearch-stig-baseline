@@ -72,9 +72,9 @@ We use a yml attribute file to steer the configuration, the following options ar
   `es_group: 'elasticsearch'`  
 
   * description: 'Path to elasticsearch.yaml',  
-  `elasticsearch_conf: '/etc/elasticsearch'`  
+  `elasticsearch_conf: '/etc/elasticsearch'`
 
-  * description: 'Path to rsyslog.conf',
+  * description: 'Path to rsyslog.conf',  
   `rsyslog_conf: '/etc/rsyslog.conf'`  
 
   * description: 'URI to the log aggregation system',  
