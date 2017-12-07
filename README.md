@@ -1,4 +1,4 @@
-# ElasticSearch STIG Benchmark (Draft) - InSpec Profile
+# WIP: ElasticSearch STIG Benchmark (Draft) - InSpec Profile
 
 ## Description
 
