@@ -104,13 +104,13 @@ inspec exec elasticsearch-inspec --controls 'V-26699 V-27130'
 
 - Rony Xavier [rx294](https://github.com/rx294)
 - Aaron Lippold [aaronlippold](https://github.com/aaronlippold)
-- Matt Issett [matt-isett](https://github.com/matt-isett)
+- Matt Isett [matt-isett](https://github.com/matt-isett)
 
 ## License and Author
 
 - Author:: Rony Xaiver [rx294@gmail.com](mailto:rx294@gmail.com)
 - Author:: Aaron Lippold [lippold@gmail.com](mailto:lippold@gmail.com)
-- Author:: Matt Issett [matt.isett@elastic.co](mailto:matt.isett@elastic.co)
+- Author:: Matt Isett [matt.isett@elastic.co](mailto:matt.isett@elastic.co)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
