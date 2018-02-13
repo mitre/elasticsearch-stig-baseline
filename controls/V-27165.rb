@@ -17,8 +17,14 @@ ES_GROUP = attribute(
   )
 
 
+ES_SERVICE_NAME= attribute(
+  'es_service_name',
+  description: 'Name of Elasticsearch service',
+  default: 'elasticsearch'
+)
+
 only_if do
-  service('elasticsearch').installed?
+  service(ES_SERVICE_NAME).installed?
 end
 
 control "V-27165" do

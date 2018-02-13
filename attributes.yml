@@ -10,6 +10,8 @@
 
 # === Required data ===
 
+es_service_name: 'node1_elasticsearch'
+
 # description: 'Elasticsearch admin password',
 es_pass: 'changeme'
 

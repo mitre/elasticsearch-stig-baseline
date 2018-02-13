@@ -1,5 +1,11 @@
+ES_SERVICE_NAME= attribute(
+  'es_service_name',
+  description: 'Name of Elasticsearch service',
+  default: 'elasticsearch'
+)
+
 only_if do
-  service('elasticsearch').installed?
+  service(ES_SERVICE_NAME).installed?
 end
 
 control "V-26676" do
@@ -14,9 +20,9 @@ requirement."
   tag "rid": "SV-33847r1_rule"
   tag "gtitle": "SRG-APP-000009"
   tag "cci": "CCI-001424"
-  tag "check": "Elasticsearch cannot support this requirement without 
+  tag "check": "Elasticsearch cannot support this requirement without
   assistance from an external application, policy, or service."
-  tag "fix": "As appropriate, grant Role Based Access Control for 
+  tag "fix": "As appropriate, grant Role Based Access Control for
   organizational users, non-organizational users, and anonymous users."
 
   only_if do
