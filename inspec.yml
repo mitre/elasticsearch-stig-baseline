@@ -6,3 +6,4 @@ copyright_email: you@example.com
 license: Apache-2.0
 summary: An InSpec Compliance Profile testing secure configuration of elasticsearch
 version: 0.1.0
+inspec_version: ">= 4.0"
