@@ -1,132 +1,124 @@
-# WIP: ElasticSearch STIG Benchmark (Draft) - InSpec Profile
+# WIP: elasticsearch-stig-baseline
 
-## Description
+InSpec Profile to validate the secure configuration of elasticsearch-stig-baseline, against [DISA's](https://iase.disa.mil/stigs/Pages/index.aspx) ElasticSearch Security Technical Implementation Guide (STIG)
 
-This [InSpec](https://github.com/chef/inspec) compliance profile implement the [ElasticSearch Security Technical Implementation Guide (STIG) - (Draft)](https://github.com/elastic/elasticsearch-inspec) in an automated way to provide security best-practice tests around ElasticSearch with X-pack server and system settings in a production environment.
+## Getting Started  
+It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __ssh__.
 
-InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.
+The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
-## Requirements
+## Tailoring to Your Environment
+The following inputs must be configured in an inputs ".yml" file for the profile to run correctly for your specific environment. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
-- At least [InSpec](http://inspec.io/) version 1.43.5 or higher
-- ElasticSearch v. 5.x or higher
-- X-pack v. 5.x or higher
+```yaml
+# IP address of the elasticsearch instance
+elastic_ip: ''
 
-### Tested Platforms
+# Port address of the elasticsearch instance
+elastic_port: ''
 
-This profile is being developed and tested along side a `hardening` recipe. The [elasticsearch-inspec-hardening](https://github.com/mitre/elasticsearch-hardening) will help you configure and deploy your ElasticSearch with X- pack instance to meet the requirements of the security baseline.
+# Path to elasticsearch home directory'<br>
+es_home: ''
 
-- CentOS 7
-- RHEL 7
+# Path to elasticsearch.yaml
+elasticsearch_conf: ''
 
-It should work on other platforms, however, we have not yet formally tested it (PR's welcome) .
+# List of managed access points
+managed_access_points: []
 
-## Attributes
+# Elasticsearch admin
+es_admin: ''
 
-We use a yml attribute file to steer the configuration, the following options are available:
+# Elasticsearch admin password
+es_pass: ''
 
-- description: 'IP address of the elasticsearch instance',<br>
-  `elastic_ip: '0.0.0.0'`
+# List of superusers
+es_superusers: []
 
-- description: 'Port address of the elasticsearch instance',<br>
-  `elastic_port: '9200'`
+# List of events to be logged
+es_included_logevents: []
 
-- description: 'Path to elasticsearch home directory'<br>
-  `es_home: '/etc/elasticsearch'`
+# List of events to be excluded
+es_excluded_logevents: []
 
-- description: 'Path to elasticsearch.yaml',<br>
-  `elasticsearch_conf: '/etc/elasticsearch/elasticsearch.yml'`
+# Elasticsearch owner
+es_owner: ''
 
-- description: 'List of managed access points',<br>
-  `managed_access_points: ['10.0.2.15']`
+# Elasticsearch group
+es_group: ''
 
-- description: 'Elasticsearch admin',<br>
-  `es_admin: 'elastic'`
+# Path to rsyslog.conf
+rsyslog_conf: ''
 
-- description: 'Elasticsearch admin password',<br>
-  `es_pass: 'changeme'`
+# URI to the log aggregation system
+log_aggregation_system: ''
 
-- description: 'List of superusers',<br>
-  `es_superusers: ['elastic']`
-
-- description: 'List of events to be logged',<br>
-  `es_included_logevents: ['access_denied', 'anonymous_access_denied', 'authentication_failed', 'connection_denied', 'tampered_request', 'run_as_denied', 'run_as_granted']`
-
-- description: 'List of events to be excluded',<br>
-  `es_excluded_logevents: ['access_granted']`
-
-- description: 'Elasticsearch owner',<br>
-  `es_owner: 'elasticsearch'`
-
-- description: 'Elasticsearch group',<br>
-  `es_group: 'elasticsearch'`
-
-- description: 'Path to rsyslog.conf',<br>
-  `rsyslog_conf: '/etc/rsyslog.conf'`
-
-- description: 'URI to the log aggregation system',<br>
-  `log_aggregation_system: 'logagg.site.mil'`
-
-- description: 'List of NSA-approved or FIPS validated cipher suites',<br>
-  `approved_cipher_suites: ['TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA','TLS_RSA_WITH_AES_128_CBC_SHA256','TLS_RSA_WITH_AES_128_CBC_SHA']`
-
-## Usage
-
-InSpec makes it easy to run your tests wherever you need. More options listed here: [InSpec cli](http://inspec.io/docs/reference/cli/)
-
-```
-# run profile locally
-$ git clone https://github.com/elastic/elasticsearch-inspec
-$ inspec exec elasticsearch-inspec
-
-# run profile locally and directly from Github
-$ inspec exec https://github.com/elastic/elasticsearch-inspec
-
-# run profile on remote host via SSH
-inspec exec elasticsearch-inspec -t ssh://user@hostname -i /path/to/key
-
-# run profile on remote host via SSH with sudo
-inspec exec elasticsearch-inspec -t ssh://user@hostname -i /path/to/key --sudo
-
-# run profile on remote host via SSH with sudo and define attribute value
-inspec exec elasticsearch-inspec --attrs attributes.yml
+# List of NSA-approved or FIPS validated cipher suites
+approved_cipher_suites: []
 ```
 
-### Run individual controls
-
-In order to verify individual controls, just provide the control ids to InSpec:
+# Running This Baseline Directly from Github
 
 ```
-inspec exec elasticsearch-inspec --controls 'V-26699 V-27130'
+# How to run
+inspec exec https://github.com/mitre/elasticsearch-stig-baseline/archive/master.tar.gz -t ssh:// --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
-## Contributors + Kudos
+### Different Run Options
 
-- Rony Xavier [rx294](https://github.com/rx294)
-- Aaron Lippold [aaronlippold](https://github.com/aaronlippold)
-- Matt Isett [matt-isett](https://github.com/matt-isett)
+  [Full exec options](https://docs.chef.io/inspec/cli/#options-3)
 
-## License and Author
+## Running This Baseline from a local Archive copy 
 
-- Author:: Rony Xaiver [rx294@gmail.com](mailto:rx294@gmail.com)
-- Author:: Aaron Lippold [lippold@gmail.com](mailto:lippold@gmail.com)
-- Author:: Matt Isett [matt.isett@elastic.co](mailto:matt.isett@elastic.co)
+If your runner is not always expected to have direct access to GitHub, use the following steps to create an archive bundle of this baseline and all of its dependent tests:
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+(Git is required to clone the InSpec profile using the instructions below. Git can be downloaded from the [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) site.)
+
+When the __"runner"__ host uses this profile baseline for the first time, follow these steps: 
 
 ```
-http://www.apache.org/licenses/LICENSE-2.0
+mkdir profiles
+cd profiles
+git clone https://github.com/mitre/elasticsearch-stig-baseline
+inspec archive elasticsearch-stig-baseline
+inspec exec <name of generated archive> -t ssh:// --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+```
+For every successive run, follow these steps to always have the latest version of this baseline:
+
+```
+cd elasticsearch-stig-baseline
+git pull
+cd ..
+inspec archive elasticsearch-stig-baseline --overwrite
+inspec exec <name of generated archive> -t ssh:// --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
 ```
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+## Viewing the JSON Results
 
-### NOTICE  
+The JSON results output file can be loaded into __[heimdall-lite](https://heimdall-lite.mitre.org/)__ for a user-interactive, graphical view of the InSpec results. 
 
-© 2020 The MITRE Corporation.  
+The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
-Approved for Public Release; Distribution Unlimited. Case Number 18-3678.  
+## Authors
+* Rony Xavier - [rx294](https://github.com/rx294)
+* Aaron Lippold - [aaronlippold](https://github.com/aaronlippold)
+* Matt Isett - [matt-isett](https://github.com/matt-isett)
+
+## Special Thanks 
+* Mohamed El-Sharkawi - [HackerShark](https://github.com/HackerShark)
+* Shivani Karikar - [karikarshivani](https://github.com/karikarshivani)
+
+## Contributing and Getting Help
+To report a bug or feature request, please open an [issue](https://github.com/mitre/elasticsearch-stig-baseline/issues/new).
 
 ### NOTICE
+
+© 2018-2020 The MITRE Corporation.
+
+Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
+
+### NOTICE
+
 MITRE hereby grants express written permission to use, reproduce, distribute, modify, and otherwise leverage this software to the extent permitted by the licensed terms provided in the LICENSE.md file included with this project.
 
 ### NOTICE  
